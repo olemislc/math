@@ -1,0 +1,232 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{arcs}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\renewcommand{\qed}{\hfill\square}
+\newtheorem{lemma}{Lemma}
+\newtheorem{claim}{Claim}
+\newtheorem*{problem}{Problem}
+\newtheorem{solution}{Solution}
+%\usepackage[utf8]{inputenc}
+%\usepackage[english]{babel}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\pagestyle{fancy}
+\lhead{Olimpiada Iberoaméricana de Matemática – Brasil 2023}
+\rhead{P2}
+\lfoot{P2 @ OIM 2023}
+\rfoot{por Olemis Lang (Cuba)}
+
+
+\begin{document}
+\begin{problem}
+Sea $\mathbb{Z}$ el conjunto de los enteros. Encuentre todas las funciones $f : \mathbb{Z} \to \mathbb{Z}$ tales que:
+
+\begin{center}
+	$2023 f(f(x)) + 2022x^2 = 2022 f(x) + 2023 [f(x)]^2 + 1$
+\end{center}
+
+para todo entero $x$.
+\end{problem}
+
+\noindent\textbf{Solution 1}\\\\
+El enunciado del problema se puede plantear de la siguiente manera:
+
+\begin{equation}
+	\forall x \in \mathbb{Z} \mid 2023 f(f(x)) + 2022x^2 = 2022 f(x) + 2023 [f(x)]^2 + 1
+\end{equation}
+
+En la solución de este problema se recurrirá a un resultado conocido que se demuestra a continuación 
+
+\begin{lemma}
+	Sea $\mathbb{J} \subseteq \mathbb{Z}$ . Sean $m, n \in \mathbb{Z}$ tales que $mcd(m, n) = 1$ y las funciones $f, F : \mathbb{J} \to \mathbb{J}$ entonces
+	
+	$\forall x \in \mathbb{J} \mid m F(f(x)) = n  F(x) \iff \forall x \in \mathbb{J} \mid F(x) = 0$
+\end{lemma}
+\textit{Proof}. 
+Como punto de partida tenemos la siguiente información
+
+\begin{equation}
+	\mathbb{J} \subseteq \mathbb{Z}
+\end{equation}
+\begin{equation}
+	m, n \in \mathbb{Z} \land mcd(m, n) = 1
+\end{equation}
+\begin{equation}
+	f, F : \mathbb{J} \to \mathbb{J}
+\end{equation}
+
+Inicialmente hay que constatar que 
+
+\begin{equation}
+	\forall x \in \mathbb{J} \mid F(x) = 0 \to (\forall x \in \mathbb{J} \mid m F(f(x)) = 0) \land (\forall x \in \mathbb{J} \mid n F(x) = 0)
+\end{equation}
+\begin{equation}
+	(5) \implies  (\forall x \in \mathbb{J} \mid F(x) = 0) \to (\forall x \in \mathbb{J} \mid m F(f(x)) = n  F(x))
+\end{equation}
+
+Supongamos entonces que 
+
+\begin{equation}
+	(\forall x \in \mathbb{J} \mid m F(f(x)) = n  F(x)) \land (\exists x\textsubscript{0} \in \mathbb{J} \mid F(x\textsubscript{0}) \neq 0)
+\end{equation}
+
+Entonces 
+
+\begin{equation}
+	m F(f(x\textsubscript{0})) = n F(x\textsubscript{0})
+\end{equation}
+\begin{equation}
+	(8)  , (3) \implies F(x\textsubscript{0}) \equiv 0 \pmod{m} 
+\end{equation}
+
+Tomando (9) como punto de partida es posible suponer que ...
+
+\begin{equation}
+\begin{gathered}
+	\exists e \in \mathbb{N} ((\forall x \in \mathbb{J} \mid m F(f(x)) = n  F(x) \land \exists x\textsubscript{0} \in \mathbb{J} \mid F(x\textsubscript{0}) \neq 0) \to \\
+	(\exists v \in \mathbb{Z} \mid F(x\textsubscript{0}) = m^e  \cdot v) \land (\nexists w \in \mathbb{Z} \mid F(x\textsubscript{0}) = m^{e+1} \cdot w))
+\end{gathered}
+\end{equation}
+
+Es preciso constatar que 
+
+\begin{equation}
+	(8), (7)  \implies F(f(x\textsubscript{0})) \neq 0
+\end{equation}
+
+... por tanto las mismas suposicionnes que se hacen en (10) para $x\textsubscript{0}$ se puede hacer para $f(x\textsubscript{0})$ . Sustituyendo se obtiene .
+
+\begin{equation}
+	(10) \implies \exists v \in \mathbb{Z} \mid F(x\textsubscript{0}) = m^e \cdot v
+\end{equation}
+\begin{equation}
+	(10), (11) \implies \exists v\textsubscript{1} \in \mathbb{Z} \mid F(f(x\textsubscript{0})) = m^e \cdot v\textsubscript{1}
+\end{equation}
+\begin{equation}
+	(10), (12), (13) \implies m (m^{e} v\textsubscript{1}) = n (m^{e} v)
+\end{equation}
+\begin{equation}
+	(14) \implies m v\textsubscript{1} = n v
+\end{equation}
+\begin{equation}
+	(15), (3) \implies \exists v\textsubscript{2} \in \mathbb{Z} \mid v = m \cdot v\textsubscript{2}
+\end{equation}
+\begin{equation}
+	(10), (16) \implies F(x\textsubscript{0}) = m^{e+1} \cdot v\textsubscript{2}
+\end{equation}
+
+La conclusion en (17) contradice la suposiciónn hecha en (10)  de que $\nexists w \in \mathbb{Z} \mid F(x\textsubscript{0}) = m^{e+1} \cdot w$ . Lo que permite concluir que 
+
+\begin{equation}
+	(17) \implies (\forall x \in \mathbb{J} \mid m F(f(x)) = n  F(x)) \to \nexists x\textsubscript{0} \in \mathbb{J} \mid F(x\textsubscript{0}) \neq 0
+\end{equation}
+\begin{equation}
+	\therefore (18), (6) \implies (\forall x \in \mathbb{J} \mid m F(f(x)) = n  F(x)) \leftrightarrow (\forall x \in \mathbb{J} \mid F(x) = 0)
+\end{equation}
+
+\hfill $\square$
+
+Regresando a considerar el problem original , consideremos reescribir la ecuación funcional de manera siguiente 
+
+\begin{equation}
+	(1) \implies \forall x \in \mathbb{Z} \mid 2023 (f(f(x)) - [f(x)]^2 - 1) = 2022 (f(x) - x^2 - 1)
+\end{equation}
+
+Teniendo en cuenta que $mcd(2022, 2023) = 1$ y aplicando el teorema antes demostrado considerando las sustituciones $F := x \mapsto f(x) -x^2 - 1$ y $f := f(x)$ se puede concluir que:
+
+\begin{equation}
+	(19), (20) \implies \forall x \in \mathbb{Z} \mid f(x) - x^2 - 1 = 0
+\end{equation}
+
+... y por tanto la única solución de la ecuación (1) es 
+
+\begin{equation}
+	(21) \implies f = x \mapsto x^2 + 1
+\end{equation}
+
+\vspace{1cm}
+Lo que queda demostrado. \\\\\\
+
+\noindent\textbf{Solution 2}\\\\
+El enunciado del problema se puede plantear de la siguiente manera:
+
+\begin{equation}
+	\forall x \in \mathbb{Z} \mid 2023 f(f(x)) + 2022x^2 = 2022 f(x) + 2023 [f(x)]^2 + 1
+\end{equation}
+
+Notemos que la ecuación dada es equivalente a: 
+
+\begin{equation}
+	(23) \implies \forall x \in \mathbb{Z} \mid 2023 (f(f(x)) - (f(x))^2) = 2022 (f(x) - x^2) + 1
+\end{equation}
+
+Aanlizando la ecuación módulo $2022$ y módulo $2023$ observamos que 
+
+\begin{equation}
+	(24) \implies \forall x \in \mathbb{Z} \mid f(x) - x^2 \equiv 1 \pmod{2023}
+\end{equation}
+\begin{equation}
+	(24) \implies \forall x \in \mathbb{Z} \mid f(f(x)) - f(x)^2 \equiv 1 \pmod{2022}
+\end{equation}
+\begin{equation}
+	(25) \implies \forall x \in \mathbb{Z} \exists k(x) \in \mathbb{Z} \mid f(x) - x^2 = 2023 k(x) + 1
+\end{equation}
+\begin{equation}
+	(26) \implies \forall x \in \mathbb{Z} \exists m(x) \in \mathbb{Z} \mid f(f(x)) - f(x)^2 = 2022 m(x) + 1
+\end{equation}
+
+Las dos proposiciones anteriores (27) y (28) sirven de definición para dos funciones auxiliares $k,m : \mathbb{Z} \to \mathbb{Z}$ , que al sustiyuir en la ecuación original se arriva al siguiente resultado:
+
+\begin{equation}
+	(23), (27), (28) \implies \forall x \in \mathbb{Z} \mid 2023 (2022 m(x) + 1) = 2022 (2023 k(x) + 1) + 1
+\end{equation}
+\begin{equation}
+	(29) \implies \forall x \in \mathbb{Z} \mid 2023 \cdot 2022 m(x) + 2023 = 2022 \cdot 2023 k(x) + 2023
+\end{equation}
+\begin{equation}
+	(30) \implies \forall x \in \mathbb{Z} \mid m(x) = k(x)
+\end{equation}
+
+Concluimos que 
+
+\begin{equation}
+\begin{gathered}
+	(27), (31), (32) \implies \exists k : \mathbb{Z} \to \mathbb{Z} \forall x \in \mathbb{Z} \mid \\
+	(f(x) = x^2 + 2023 k(x) + 1) \\
+	(f(f(x)) = f(x)^2 + 2022 k(x) + 1)
+\end{gathered}
+\end{equation}
+
+Sin embargo , sustituyendo $x := f(x)$ en la ecuación que expresa $f(x)$ en función de $k(x)$ vemos que
+
+\begin{equation}
+	(32) \implies \forall x \in \mathbb{Z} \mid f(x)^2 + 1 + 2022 k(x) + 1 = f(x)^2 + 1 + 2023 k(f(x))
+\end{equation}
+\begin{equation}
+	(33) \implies \forall x \in \mathbb{Z} \mid 2022 k(x) = 2023 k(f(x))
+\end{equation}
+
+Reutilizando el resultado intermedio de la solución anterior en (19) sustituyendo $F := k$ y $f := f$ .
+
+\begin{equation}
+	(34) \implies \forall x \in \mathbb{Z} \mid k(x) = 0
+\end{equation}
+\begin{equation}
+	\therefore  (32), (35) \implies f = x \mapsto x^2 + 1
+\end{equation}
+
+\vspace{1cm}
+Lo que queda demostrado. \\\\\\
+
+
+
+\end{document}
