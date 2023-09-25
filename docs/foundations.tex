@@ -8,7 +8,7 @@
 
 \section{Metamatemáticas}
 
-La metamatemática es una rama de la matemática dedicada a formalizar en términos matemáticos los elementos básicos de esta ciencia y sus relaciones. Esta sección no tiene como propósito una recopilación exhaustiva, profunda y sistemática  de hechos y teoremas en esta rama, Esto se debe a que el discurso vaa dirigido en buena medida a estudiantes de nivel pre-universitario, quizás secundaria. Se incluye estaa sección en función de entender los temas tratados posteriormente, algunos aspectos dde las demostraciones y brindar gerramientas de razonamiento al abordar la resolución de problemas, así como referencias para comprobar que son correctos.
+La metamatemática es una rama de la matemática dedicada a formalizar en términos matemáticos los elementos básicos de esta ciencia y sus relaciones. Esta sección no tiene como propósito una recopilación exhaustiva, profunda y sistemática  de hechos y teoremas en esta rama. Esto se debe a que el discurso va dirigido en buena medida a estudiantes de nivel pre-universitario, quizás secundaria. Se incluye esta sección en función de entender los temas tratados posteriormente, algunos aspectos de las demostraciones y brindar herramientas de razonamiento al abordar la resolución de problemas, así como referencias para comprobar que son correctos.
 
 \subsection{Fórmulas}
 
@@ -113,6 +113,10 @@ Esta regla permite también eliminar la implicación entre dos proposiciones ló
 \input{share/foundations/ruleinfer.absurdum.tex}
 
 La reducción al absurdo es una regla que, al ser interpretada como estrategia de resolución de problemas, es una de las herramientas más poderosas y populares para demostraciones matemáticas. La estrategia connsiste en asumir que \textit{"algo"} se cumple y partir de ese punto con dos líneas de razonamiento, una que demuestre que \textit{"otra cosa"} es verdadera y otra vía que demuestre que esa \textit{"otra cosa"} es falsa. De lograrlo, se puede asegurar que ese \textit{"algo"} que se asumió inicialmete que se cumplía, es por el contrario falso. Hay que mencionar que si al principio se asume que ese \textit{"algo"} que se quiere demostrar es falso, entonces arrivar a la contradicción lo que permite asegurar es que es \textit{"algo"} sí se cumple.
+
+\input{share/foundations/ruleinfer.cases.tex}
+
+Tambié conocida como \textit{prueba por casos}, argumentación basada en casos o \textit{eliminación de la disjunción} , esta regla es super útil y extremadamete recurrente en las demostraciones matemáticas. Su planteamiento es el que fundamenta la posibilidad de, como estrategia de resolución de problemas, descomponer una hipótesis compleja en casos más simples. Si se logra demostrar que todos los casos son equivalentes a la hipótesis y que sea cual sea el caso, siempre es posible arrivar a la misma conclusión, entonces la conclusión es verdadera bajo los supuestos hechos en la hipótesis.
 
 \section{Las relaciones básicas}
 \subsection{Igualdad}
