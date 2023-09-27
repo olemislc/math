@@ -94,7 +94,7 @@ Al abordar las transformaciones que se suceden durante una prueba formal resulta
 $A\textsubscript{1}, A\textsubscript{2}, ... A\textsubscript{n} \vdash C$
 \end{center}
 
-Esta notación expresa que al asumir la veracidad de los antecedentes (fórmulas) $A\textsubscript{1}, A\textsubscript{2}, ... A\textsubscript{n}$ existe una sucesión de transformaciones de las mismas acordes a las reglas de inferencia, que permiten aseguraar la validez de la conclusión expresada en la fórmula $C$ .
+Esta notación expresa que al asumir la veracidad de los antecedentes (fórmulas) $A\textsubscript{1}, A\textsubscript{2}, ... A\textsubscript{n}$ existe una sucesión de transformaciones de las mismas acordes a las reglas de inferencia, que permiten asegurar la validez de la conclusión expresada en la fórmula $C$ .
 
 Veamos cada regla a continuación para tener una idea más precisa. Comencemos por las más afines a la propia notación secuente para, quizás, entender mejor las implicaciones de su significado.
 
@@ -120,7 +120,19 @@ También conocida como \textit{prueba por casos}, \textit{argumentación basada 
 
 \input{share/foundations/ruleinfer.consdilemma.tex}
 
-Esta regla es de uso menos frecuente, pero es interesante y útil en el sentido en que plantea, como estrategia de demostración, que en el problema de probar que bajo cualquier circunstancia al menos una de varias proposiciones siempre es válida, se puede sustituir cualquiera de estas proposiciones por otra, siempre que la validez de la última implique la de la primera.
+Esta regla es de uso menos frecuente, pero es interesante y útil en el sentido en que plantea, como estrategia de demostración, que en el problema de probar que bajo cualquier circunstancia al menos una de varias proposiciones siempre es válida, se puede sustituir cualquiera de estas proposiciones por otra más simple o conocida, siempre que la validez de la que se considera como remplazo implique la de la proposición original.
+
+Existen otras reglas de inferencia fundamentales que se mencionan a continuación. Si bien es más complejo interpretarlas en sí mismas como estrategias de solución de problemas, pueden resultar útiles al fundamentar un argumento durante una demostración.
+
+\input{share/foundations/ruleinfer.add.tex}
+\input{share/foundations/ruleinfer.lorsylo.tex}
+\input{share/foundations/ruleinfer.simpl.tex}
+\input{share/foundations/ruleinfer.adj.tex}
+\input{share/foundations/ruleinfer.equiv.tex}
+\input{share/foundations/ruleinfer.equivdel.tex}
+\input{share/foundations/ruleinfer.equivlor.tex}
+\input{share/foundations/ruleinfer.equivsymm.tex}
+\input{share/foundations/ruleinfer.excquod.tex}
 
 \section{Las relaciones básicas}
 \subsection{Igualdad}
