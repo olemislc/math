@@ -10,7 +10,7 @@
 
 La metamatemática es una rama de la matemática dedicada a formalizar en términos matemáticos los elementos básicos de esta ciencia y sus relaciones. Esta sección no tiene como propósito una recopilación exhaustiva, profunda y sistemática  de hechos y teoremas en esta rama. Esto se debe a que el discurso va dirigido en buena medida a estudiantes de nivel pre-universitario, quizás secundaria. Se incluye este contenido en función de entender los temas tratados posteriormente, explicar el estilo en que se expresan algunos aspectos de las demostraciones y brindar herramientas de razonamiento al abordar la resolución de problemas, así como referencias para comprobar que son correctos.
 
-\subsection{Fórmulas}
+\subsection{Fórmulas} \label{chp_formulae}
 
 Las demostraciones se realizan de manera progresiva. Para decribir lo que sucede en cada paso se utiliza un lenguaje matemático universal (o sea, comprensible por cualquier persona más allá del lenguaje que se hable en su país de orígen o residencia).. El elemento sintáctico fundamental de este lenguaje son las fórmulas.
 
@@ -78,11 +78,66 @@ Usando esas reglas se puede expresar cualquier proposición matemática. A conti
 		\end{itemize}
 \end{itemize}
 
-\subsection{Varibles libres y vinculadas}
+\subsection{Variables libres y vinculadas}
 
-En el epígrafe anterior se hizo referencia a las vvariables libres . Las mismas son las variables dentro de una fórmula que admiten algún tipo de sustitución. Brevemente explicaremos a continuación cómo se define este concepto.
+En el epígrafe anterior se hizo referencia a las vvariables libres . Las mismas son las variables dentro de una fórmula que admiten algún tipo de sustitución. A continuación se ofrece una definición partiendo del concepto más abarcador hasta llegar al más específico, segú la definición de formula en \cref{chp_formulae}. Comencemos entonces por las reglas de definición de las fórmulas, desde las complejas hasta las más simples.
 
-
+\begin{itemize}
+	\item{En la fórmula de sustititución $\varphi\left[x \backslash \phi\right]$ , } ...
+		\begin{itemize}
+			\item{... una variable aparece libre si y solo si aparece libre en $\phi$ o aparece libre en $\varphi$ y es un símbolo diferente de la variable sustituida, en este caso $x$}
+			\item{... una variable aparece vinculada si y solo si aparece vinculada en $\phi$ o aparece vinculada en $\varphi$ }
+		\end{itemize}
+	\item{En las expresiones cuantificadas $\forall x\ \varphi$ y $\exists x\ \varphi$ ...}
+		\begin{itemize}
+			\item{... una variable aparece libre si y solo si ocurre libre en $\varphi$ y es diferente al símbolo cuantificado, en el caso de referencia sería $x$}
+			\item{... una variable aparece vinculada si  y solo si es el símbolo cuantificado, en el caso de referencia sería $x$, o por lo contrario ocurre vinculada en $\varphi$}
+		\end{itemize}
+	\item{En las expresiones lógicas formadas al colocar un conector lógico  entre otras dos fórmulas, tales como $\varphi \land \phi$, $\varphi \lor \phi$, $\varphi \to \phi$, $\varphi \equiv \phi$, $\varphi \implies \phi$ t...}
+		\begin{itemize}
+			\item{... una variable aparece libre si y solo si aparece libre en alguna de las fórmulas $\varphi$ o $\phi$}
+			\item{... una variable aparece vinculada si  y solo si ocurre vinculada en alguna de las fórmulas $\varphi$ o $\phi$}
+		\end{itemize}
+	\item{En una negación $\neg\varphi$ ...}
+		\begin{itemize}
+			\item{... una variable aparece libre si y solo si ocurre libre en $\varphi$}
+			\item{... una variable aparece vinculada si  y solo si ocurre vinculada en $\varphi$}
+		\end{itemize}
+	\item{En una igualdad $t\textsubscript{1}=t\textsubscript{2}$ ...}
+		\begin{itemize}
+			\item{... una variable aparece libre si y solo si ocurre libre en $t\textsubscript{1}$ o $t\textsubscript{2}$ }
+			\item{... una variable aparece vinculada si  y solo si ocurre libre en $t\textsubscript{1}$ o $t\textsubscript{2}$ }
+		\end{itemize}
+	
+	\item{Las constantes (lógica o no) no contienen, como expresión, variables ni libres ni vinculadas.}
+	\item{Las fórmulas constituídas por variables tales como $x$, $u$, en todos los casos son ocurrencias libres y nunca vinculadas.}
+	\item{En las expresiones matemáticas de los dominios específicos ...}
+		\begin{itemize}
+			\item{... una variable aparece vinculada si  y solo si es un símbolo de control de un notación matemática parametrizada.}
+			\item{... una variable aparece libre en caso contrario}
+			\item{Por ejemplo, en las siguientes expresiones las variables $u$, $v$ aparecen vinculada mientras que $l$, $m$ y $n$ cuentan como variables libres}
+			\begin{itemize}
+				\item{${\displaystyle \sum _{v=l}^{n}\frac{l+v}{n-v}}$} 
+				\item{${\displaystyle \prod_{u,v \in S}{\frac{l+v}{n-u}}}$}
+				\item{$\bigg({\displaystyle \lim_{v \to n}{\frac{l+1}{n-v}}}\bigg) + m$}
+				\item{${\displaystyle \sum _{v=l}^{n}\int_{u=0}^{m-v}{(v-e^{-mu})\,\mathrm{d}u}}$} 
+			\end{itemize}
+		\end{itemize}
+	\item{En el caso de las expresiones asociadas a funciones escritas en la forma $f(t\textsubscript{1}, t\textsubscript{2}, ..., t\textsubscript{n})$ , donde cada variable $t\textsubscript{n}$ entre paréntesis representa un término ... }
+		\begin{itemize}
+			\item{... una variable aparece libre si y solo si ocurre libre en alguno de los términos $t\textsubscript{1}, t\textsubscript{2}, ..., t\textsubscript{n}$}
+			\item{... una variable aparece vinculada si  y solo si ocurre vinculada en alguno de los términos $t\textsubscript{1}, t\textsubscript{2}, ..., t\textsubscript{n}$}
+		\end{itemize}
+	\item{En el caso de las expresiones asociadas a funciones escritas en la forma $x\textsubscript{1}, x\textsubscript{2}, ..., x\textsubscript{n} \mapsto t$ donde los $x\textsubscript{i}$ son variables y $t$ un término que puede incluir referencias a estas variables ... }
+		\begin{itemize}
+			\item{... una variable aparece libre si y solo si ocurre libre en $t$ y no es ninguno de los símbolos de las variables que representa los parámetros, en el caso de ejemplo $x\textsubscript{1}, x\textsubscript{2}, ..., x\textsubscript{n}$}
+			\item{... una variable aparece vinculada si  y solo si es una de las variables que representa los parámetros, en el caso de ejemplo $x\textsubscript{1}, x\textsubscript{2}, ..., x\textsubscript{n}$, o de lo contrario si ocurre vinculada en el término $t$ }
+		\end{itemize}
+	\item{Por ejemplo, en las siguientes expresiones las variables $u$, $v$, $w$ aparecen vinculada mientras que $l$, $m$ y $n$ cuentan como variables libres}
+		\begin{itemize}
+			\item{$u,v \mapsto {\displaystyle \sum _{w=l}^{n} {{n \choose l}u^w v^{n-w}}}$} 
+		\end{itemize}
+\end{itemize}
 
 \subsection{Reglas de inferencia}
 
