@@ -177,6 +177,12 @@ También conocida como \textit{prueba por casos}, \textit{argumentación basada 
 
 Esta regla es de uso menos frecuente, pero es interesante y útil en el sentido en que plantea, como estrategia de demostración, que en el problema de probar que bajo cualquier circunstancia al menos una de varias proposiciones siempre es válida, se puede sustituir cualquiera de estas proposiciones por otra más simple o conocida, siempre que la validez de la que se considera como remplazo implique la de la proposición original.
 
+\input{share/foundations/ruleinfer.currying.tex}
+
+Esta regla permite introducir hipótesis intermedias de una demostración como premisas generales. Que quiere decir esto. En una dirección esta regla de inferencia expresa que , si se asume que dos coss y se llega a demostrar una conclusión, entonces es posible asegurar que al asumir una sola de ellas como válida , la conclusión que se puede inferir es que si ocurre la segunda hipótesis será cierta la conclusión. La inferenncia en sentido contrario también es válida. . Es decir , si se parte de una hipótesis que se asume como válida y se demuestra que \textit{"algo"} implica \textit{"otra cosa"} ; esa conclusión permite inferir que al asumir la hipótesis original y ese \textit{"algo"} entonces la \textit{"otra cosa"} que se concluyo anteriormente también es válida.
+
+Como curiosidad el nombbre de la regla se debe a Haskell Curry, notable matemático que, entre sus resultados, logró establecer una relación directa entre programas de computadora. Es por esto que en la programación existe una técnica llamada Currying que permite implementar funciones de varios parámetros en llenguajes de programación funcional como Haskell, donde todas las funciones aceptann un único parámetro. La relación entre ambos escenarios no es fortuita, como tampoco lo es las aplicaciones y semejanzas con temas de la física y otras rmas la matemática superior.
+
 Existen otras reglas de inferencia fundamentales que se mencionan a continuación. Si bien es más complejo interpretarlas en sí mismas como estrategias de solución de problemas, pueden resultar útiles al fundamentar un argumento durante una demostración.
 
 \input{share/foundations/ruleinfer.add.tex}
