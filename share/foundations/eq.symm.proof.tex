@@ -1,0 +1,25 @@
+\textit{Proof}. 
+
+Es posible constatar que $y = x$ es una  posible sustitución parcial en \cref{eq_reflexive}., por lo tanto , según \cref{eq_subs} se obtiene que
+
+\begin{equation} \label{eq_sym_proof_1}
+\begin{gathered}
+	\labelcref{eq_subs} , \quad \labelcref{eq_reflexive}\ x=x \quad \vdash \quad (x = y) \implies ((x = x) \implies (y=x))
+\end{gathered}
+\end{equation}
+
+Basados en \cref{relinf_modustollens}  modus tollens
+
+\begin{equation} \label{eq_sym_proof_2}
+\begin{gathered}
+	(x = x) \implies (y=x) \\
+	\underline{\labelcref{eq_reflexive} \quad x=x \quad \quad \quad} \\
+	y = x
+\end{gathered}
+\end{equation}
+
+\begin{equation}
+	\therefore \labelcref{eq_sym_proof_1} , \quad \labelcref{eq_sym_proof_2} \quad \vdash \quad (x = y) \implies (y = x)
+\end{equation}
+
+\hfill $\square$
