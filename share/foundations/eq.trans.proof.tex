@@ -1,0 +1,27 @@
+\textit{Proof}. 
+
+Es posible constatar que $x = z$ es una  posible sustitución de $y$ por $x$ para la fórmula $y = z$., por lo tanto , según \cref{eq_subs} se obtiene que
+
+\begin{equation} \label{eq_trans_proof_1}
+	\begin{gathered}
+		\labelcref{eq_subs} \vdash \quad (y = x) \implies ((y = z) \implies (x=z))
+	\end{gathered}
+\end{equation}
+
+Basados en \cref{eq_symm}  la simetría 
+
+\begin{equation} \label{eq_trans_proof_2}
+	\labelcref{eq_trans_proof_1},\ \labelcref{eq_symm} \quad \vdash \quad (x = y) \implies ((y = z) \implies (x=z))
+\end{equation}
+
+Aplicando \cref{relinf_currying} uncurrying .
+
+\begin{equation} 
+\begin{gathered}
+	\underline{\labelcref{eq_trans_proof_2} (x = y) \implies ((y = z) \implies (x=z))} \\
+	\underline{\quad \quad \quad \quad\quad x = y, y=z \vdash x=z \quad \quad \quad \quad \quad} \\
+	\therefore (x = y) \land (y=z) \implies (x=z)
+\end{gathered}
+\end{equation}
+
+\hfill $\square$
