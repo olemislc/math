@@ -1,0 +1,94 @@
+
+\noindent\textbf{Solution}\\\\
+
+Como el juego es por turnos, describamos el estado antes de hacer una jugada con una tupla del tipo $\langle n, t, c\rangle $ donde
+
+\begin{itemize}
+	\item{$n \in \mathbb{N}$ representa la cantidad de jugadas que se han realizado }
+	\item{$t \in \mathbb{N}$} sería el número de torres o columnas de discos 
+	\item{$c \in \mathbb{N}$ representa la cantidad total de discos, o sea, la suma de la cantidad de discos que hay en todas las columnas}
+\end{itemize}
+
+Partiedo de esta notación , e identificando por $\sigma\textsubscript{i}$ la tupla que describe el estado del juego después de $i$ jugadas, la condición inicial del juego puede ser expresada como
+
+\begin{equation} \label{eq_91_obr202300002_1}
+	\sigma\textsubscript{0} = \langle 0, 10, 55\rangle 
+\end{equation}
+
+Definamos entonces las funciones $j\textsubscript{1}, j\textsubscript{2}: \mathbb{N}^3 \to \mathbb{N}$ que toman como parámetro una configuración del juego y devuelven otra atendiendo a las siguientes definiciones
+
+\begin{equation} \label{eq_91_obr202300002_2}
+\begin{gathered}
+	j\textsubscript{1}(\langle n, t, c\rangle) = \langle n, t, c\rangle  \mapsto \langle n+1, t-1, c+2\rangle \\
+	j\textsubscript{2}(\langle n, t, c\rangle ) = \langle n, t, c\rangle  \mapsto \langle n+1, t+1, c-2\rangle 
+\end{gathered}
+\end{equation}
+
+Se puede corroborar que $j\textsubscript{1}$ y $j\textsubscript{2}$ se ajustan a las reglas $1$ y $2$ del juego, respectivamente. Por tal razón, la sucesión de jugadas de una partida queda definida entonces de la siguiente manera
+
+\begin{equation} \label{eq_91_obr202300002_3}
+	\forall n \in \mathbb{N}\ \sigma\textsubscript{n+1} = 
+		\begin{cases}
+			j\textsubscript{1}((\sigma\textsubscript{n}) \\
+			j\textsubscript{2}((\sigma\textsubscript{n})
+		\end{cases}
+\end{equation}
+
+Definamos la función $I: \mathbb{N}^3 \to \mathbb{N}$ que evalúa cada configuración de acuerdo a la siguiente definición
+
+\begin{equation} \label{eq_91_obr202300002_4}
+	I(\langle n, t, c\rangle ) = 2 t + c
+\end{equation}
+
+Entonces , $\forall \sigma\textsubscript{n}$
+
+\begin{equation} \label{eq_91_obr202300002_4a}
+	I(\sigma\textsubscript{0}) = 2 \cdot 10 + 55 = 75
+\end{equation}
+\begin{equation} \label{eq_91_obr202300002_5}
+\begin{gathered}
+	\labelcref{eq_91_obr202300002_2}, \labelcref{eq_91_obr202300002_4} \vdash I(j\textsubscript{1}(\sigma\textsubscript{n})) = 2 (t - 1) + (c + 2) = 2 t + c \\
+	\labelcref{eq_91_obr202300002_2}, \labelcref{eq_91_obr202300002_4} \vdash I(j\textsubscript{2}(\sigma\textsubscript{n})) = 2 (t + 1) + (c - 2) = 2 t + c
+\end{gathered}
+\end{equation}
+\begin{equation} \label{eq_91_obr202300002_6}
+	\labelcref{eq_91_obr202300002_5} \vdash \forall n \in \mathbb{N}\  I(\sigma\textsubscript{n+1}) =  I(\sigma\textsubscript{n})
+\end{equation}
+
+Es decir , $I$ es un invariante de la posición, por lo tanto, por inducción matemática
+
+\begin{equation} \label{eq_91_obr202300002_7}
+	\labelcref{eq_91_obr202300002_4a}, \labelcref{eq_91_obr202300002_6} \vdash \forall n \in \mathbb{N}\ I(\sigma\textsubscript{n}) = 75
+\end{equation}
+
+Según los datos, en una configuración final donde no se puedn hacer más jugadas hay $t'$ columnas con exactamente $1$ disco y otra columna adicional con $c'$ discos. Es decir, llegaríamos a una configuración que cumple con
+
+\begin{equation} \label{eq_91_obr202300002_8}
+	\exists k \in \mathbb{N}\ \sigma\textsubscript{k} = \langle k, t'+1, t' + c'\rangle 
+\end{equation}
+
+Para que no se puedan aplicar ni la jugada $1$ ni la $2$ , se tiene que cumplir que 
+
+\begin{equation} \label{eq_91_obr202300002_9}
+	(1 \leq c') \land (c' \leq 3)
+\end{equation}
+
+... y entonces ...
+
+\begin{equation} \label{eq_91_obr202300002_10}
+	\labelcref{eq_91_obr202300002_7} \vdash I(\sigma\textsubscript{k}) = 75
+\end{equation}
+\begin{equation} \label{eq_91_obr202300002_11}
+	\labelcref{eq_91_obr202300002_8}, \labelcref{eq_91_obr202300002_10} \vdash 2 (t'+1) + t' + c' = 75
+\end{equation}
+\begin{equation} \label{eq_91_obr202300002_12}
+	\labelcref{eq_91_obr202300002_11} \vdash 3 t' = 73 - c'
+\end{equation}
+\begin{equation} \label{eq_91_obr202300002_12}
+	\labelcref{eq_91_obr202300002_12}, \labelcref{eq_91_obr202300002_9}, t' \in \mathbb{N} \vdash (t' = 24) \land (c' = 1)
+\end{equation}
+
+Por tanto , como $c' = 1$, la configuración final siempre tiene $t'+ 1 = 25$ columnas con exactamene un disco.
+
+\vspace{1cm}
+Lo que queda demostrado. \\\\\\
