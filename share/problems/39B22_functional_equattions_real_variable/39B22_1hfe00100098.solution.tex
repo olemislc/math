@@ -1,0 +1,75 @@
+
+\noindent\textbf{Solución 1}\\\\
+
+Sabemos que 
+\begin{equation}
+\label{eq1}
+f(x+1) = f(x)+1
+\end{equation}
+y que 
+\begin{equation}
+\label{eq2}
+f\Big(\frac{1}{f(x)}\Big) = \frac{1}{x}
+\end{equation}
+
+\vspace{0.5cm}
+
+\textbf{Claim 1:} $f$ es  biyectiva.\\
+\textbf{Dem :} $\eqref{eq2}\Rightarrow$ sobreyectividad ya que $1/x$ toma todos los valores reales positivos cuando $x$ recorre los reales positivos.
+Por otra parte 
+\[
+f(a) = f(b) \Rightarrow \frac{1}{f(a)} = \frac{1}{f(b)}\Rightarrow f\Big(\frac{1}{f(a)}\Big) = f\Big(\frac{1}{f(b)}\Big)\Rightarrow \frac{1}{a} = \frac{1}{b} \Rightarrow a=b
+\]
+de donde $f$ es inyectiva. $\square$
+
+\vspace{0.5cm}
+
+\textbf{Claim 2:} $f(1) = 1$.\\
+\textbf{Dem :} Veamos que $\eqref{eq1}$ implica por inducción que para todo $x$ real positivo y para todo $n$ natural
+\begin{equation}
+\label{eq3}
+f(x+n) = f(x)+n.
+\end{equation}
+Ahora,
+\[
+a>1\Rightarrow f(a) = f(a-1+1) \stackrel{\eqref{eq1}}{=}  f(a-1)+1 > 1.
+\]
+Entonces si $f(1)< 1$
+\[
+\frac{1}{f(1)} > 1 \Rightarrow 1 \stackrel{\eqref{eq2}}{=} f\Big(\frac{1}{f(1)}\Big) > 1 
+\]
+Contradicción.\\
+
+Por otra parte 
+\[
+f(a) > 1\Rightarrow f(a) = [f(a)] + \{f(a)\}
+\]
+donde $[f(a)]\ge 1$.Usando biyectividad tenemos que 
+\[
+f(a) > 1\Rightarrow f(a) = [f(a)] + \{f(a)\} \stackrel{\eqref{eq3}}{=}f\Big( f^{-1}(\{f(a)\})+[f(a)]\Big)
+\]
+esto implica por la inyectividad que 
+\[
+a = f^{-1}(\{f(a)\})+[f(a)] > 1
+\]
+de donde si $f(1)>1$ entonces $1>1$. Contradicción.\\
+Queda probado el claim ya que $f(1)$ no puede ser ni mayor ni menor que $1$. $\square$
+
+\vspace{0.5cm}
+
+\textbf{Claim 3:} $f\big(\frac{n}{m}\big) = \frac{n}{m}$ para todos $n,m$ enteros positivos.\\
+\textbf{Dem :} Procediendo por inducción en $m$. Cuando $m=1$ sabemos por \eqref{eq3} y el claim $2$ que $f(n) = n$ para todo entero positivo $n$.\\
+Supongamos que para todo $m \le k$ se cumple que $f\big(\frac{n}{m}\big) = \frac{n}{m}$ para todo entero positivo $n$.\\
+Sea ahora $n = (k+1)p+r$ con $0\le r < k+1$. Veamos que
+\[
+f\big(\frac{n}{k+1}\big) = f\big(p + \frac{r}{k+1}\big) \stackrel{\eqref{eq3}}{=} p+f\big(\frac{r}{k+1}\big) \stackrel{hip}{=} p+ f\Big(\frac{1}{f(\frac{k+1}{r})}\Big)  \stackrel{\eqref{eq2}}{=} p + \frac{r}{k+1} = \frac{n}{k+1}
+\]
+Este análisis también funciona cuando $p = 0$. $\square$.
+
+\vspace{0.5cm}
+\textbf{Claim 4:} $f(x)= x$ para todos $x$ real positivo.\\
+\textbf{Dem :} Sabemos que todo $x$ real se puede aproximar por una sucesión de racionales. Sea $\{q_n\}$ una sucesión de racionales cuyo limite es $x$. Como $f$ es continua
+\[
+f(x) = f(\lim q_n) = \lim f(q_n)\stackrel{claim\,3}{=} \lim q_n = x.
+\]
+$\square$
