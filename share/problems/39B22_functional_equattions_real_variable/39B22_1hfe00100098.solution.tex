@@ -1,0 +1,289 @@
+\noindent\textbf{Solution 1} por Olemis Lang \\\\
+
+Por los datos del problema se sabe que
+
+\begin{equation} \label{eq_39B22_1hfe00100098_1}
+	f: \mathbb{R}^{+} \to \mathbb{R}^{+}
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_2}
+	\forall x \in  \mathbb{R}^{+}\ f(x+1) = f(x) + 1
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_3}
+	\forall x \in  \mathbb{R}^{+}\ f\left(\frac{1}{f(x)}\right) = \frac{1}{x}
+\end{equation}
+
+\begin{claim}
+	$f$ es biyectiva 
+\end{claim}
+\textit{Proof}. 
+
+\begin{equation} \label{eq_39B22_1hfe00100098_4}
+	a = b \implies f(a) = f(b)
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_5}
+	f(a) = f(b) \implies f \bigg(\frac{1}{f(a)}\bigg) = f\bigg(\frac{1}{f(b)}\bigg) 
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_6}
+	\labelcref{eq_39B22_1hfe00100098_5}, \labelcref{eq_39B22_1hfe00100098_3} \vdash f(a) = f(b) \implies a = b
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_7}
+\labelcref{eq_39B22_1hfe00100098_6}, \labelcref{eq_39B22_1hfe00100098_4} \vdash a = b \Leftrightarrow f(a) = f(b)
+\end{equation}
+
+Definamos una nueva función $g(x)$ de la siguiennte manera:
+
+\begin{equation} \label{eq_39B22_1hfe00100098_8}
+	g: \mathbb{R}^{+} \to \mathbb{R}^{+}\ \forall x \in \mathbb{R}^{+}\ g(x) = \frac{1}{f(x)}
+\end{equation}
+
+Entonces las condiciones iniciales del problema rescritas para $g(x)$ se transforman en
+
+\begin{equation} \label{eq_39B22_1hfe00100098_9}
+	\labelcref{eq_39B22_1hfe00100098_2} , \labelcref{eq_39B22_1hfe00100098_8} \vdash \forall x \in  \mathbb{R}^{+}\ g(x+1) = \frac{g(x)}{g(x) + 1}
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_10}
+	\labelcref{eq_39B22_1hfe00100098_3} , \labelcref{eq_39B22_1hfe00100098_8} \vdash \forall x \in  \mathbb{R}^{+}\ g(g(x)) = x
+\end{equation}
+
+Es decir, \cref{eq_39B22_1hfe00100098_10} $g(x)$ es una involución y por sustitución directa 
+
+\begin{equation} \label{eq_39B22_1hfe00100098_11}
+	\labelcref{eq_39B22_1hfe00100098_9} \vdash g \neq x \mapsto x
+\end{equation}
+
+Resulta entonces oportuno apelar a un resultado que aplica en estos casos.
+
+\begin{theorem} \label{39b22_invol_th1}
+	Sea $J \subseteq \mathbb{R}$ un intervalo en el cual una función $h: J \to J$, distinta de la identidad $id\textsubscript{J} = x \mapsto x$, es continua y es inversa de sí misma al cumplir que $\forall x \in J\ h(h(x)) = x$ ; entonces $h$ es estrictamente decreciente en $J$ .
+\end{theorem}
+
+\textit{Proof} Los hechos del enuncido se pueden plantear de la siguiente manera.
+
+\begin{equation} \label{eq_39b22_invol_th1_1}
+	h: J \to J
+\end{equation}
+\begin{equation} \label{eq_39b22_invol_th1_2}
+	h \neq id\textsubscript{J}
+\end{equation}
+\begin{equation} \label{eq_39b22_invol_th1_3}
+	\forall x \in J\ h(h(x)) = x
+\end{equation}
+
+Al $h$  ser inyectiva y continua , $h$ es estrictamente monótona. Supongamos que $h$ es estrictamente creciente en el intervalo $J$, es decir
+
+\begin{equation} \label{eq_39b22_invol_th1_4}
+	\forall x,y \in J\ (x < y) \to h(x) < h(y)
+\end{equation}
+
+Entonces 
+
+\begin{equation} \label{eq_39b22_invol_th1_5}
+	\labelcref{eq_39b22_invol_th1_2} \vdash \exists x\textsubscript{0} \in J\ h(x\textsubscript{0}) \neq x\textsubscript{0}
+\end{equation}
+\begin{equation} \label{eq_39b22_invol_th1_6}
+	\labelcref{eq_39b22_invol_th1_5} \vdash \exists x\textsubscript{0} \in J\ h(x\textsubscript{0}) < x\textsubscript{0} \lor h(x\textsubscript{0}) > x\textsubscript{0}
+\end{equation}
+
+Analicemos cada caso. Supongamos inicialmente que $h(x\textsubscript{0}) < x\textsubscript{0}$
+
+\begin{equation} \label{eq_39b22_invol_th1_7}
+	h(x\textsubscript{0}) < x\textsubscript{0}
+\end{equation}
+\begin{equation} \label{eq_39b22_invol_th1_8}
+	\labelcref{eq_39b22_invol_th1_4}, \labelcref{eq_39b22_invol_th1_7} \vdash h(h(x\textsubscript{0})) < h(x\textsubscript{0})
+\end{equation}
+\begin{equation} \label{eq_39b22_invol_th1_9}
+	\labelcref{eq_39b22_invol_th1_8}, \labelcref{eq_39b22_invol_th1_3} \vdash x\textsubscript{0} < h(x\textsubscript{0})
+\end{equation}
+
+Consideremos entonces el caso contrario y supongamos que 
+
+\begin{equation} \label{eq_39b22_invol_th1_10}
+	x\textsubscript{0} < h(x\textsubscript{0})
+\end{equation}
+\begin{equation} \label{eq_39b22_invol_th1_11}
+	\labelcref{eq_39b22_invol_th1_4}, \labelcref{eq_39b22_invol_th1_10} \vdash h(x\textsubscript{0}) < h(h(x\textsubscript{0}))
+\end{equation}
+\begin{equation} \label{eq_39b22_invol_th1_12}
+	\labelcref{eq_39b22_invol_th1_11}, \labelcref{eq_39b22_invol_th1_3} \vdash h(x\textsubscript{0}) < x\textsubscript{0}
+\end{equation}
+
+Como en todos los casos posibles se arriva a una contradicción, se ha demostrado que, si se cumplen las hipótesis del enunciado entonces la suposición de monotonía creciente no es posible. Es decir 
+
+\begin{equation} \label{eq_39b22_invol_th1_13}
+\begin{gathered}
+	\labelcref{eq_39b22_invol_th1_9}, \labelcref{eq_39b22_invol_th1_12}\vdash \\
+	(\forall x \in J\ h(h(x)) = x) \land (h \neq id\textsubscript{J}) \to \neg(\forall x,y \in J\ (x < y) \to h(x) < h(y))
+\end{gathered}
+\end{equation}
+
+... y como, al $h$  ser inyectiva y continua , $h$ es estrictamente monótona, solamente puede ser decreciente
+
+\begin{equation}
+\begin{gathered}
+	 \therefore (\forall x \in J\ h(h(x)) = x) \land (h \neq id\textsubscript{J}) \implies \forall x,y \in J\ (x < y) \to h(x) > h(y)
+\end{gathered}
+\end{equation}
+
+\hfill $\square$
+
+Como ya constatamos anteriormente $g(x)$ cumple con las condiciones de \cref{39b22_invol_th1}, por lo tanto
+
+\begin{equation} \label{eq_39B22_1hfe00100098_12}
+	\cref{39b22_invol_th1} \vdash \forall x,y \in \mathbb{R}^{+}\ x < y \to g(x) > g(y)
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_13}
+	\labelcref{eq_39B22_1hfe00100098_12}, \labelcref{eq_39B22_1hfe00100098_8} \vdash \forall x,y \in \mathbb{R}^{+}\ x < y \to f(x) < f(y)
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_14}
+	\labelcref{eq_39B22_1hfe00100098_1}, \labelcref{eq_39B22_1hfe00100098_2} \vdash (x > 1) \implies f(x) > 1
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_15}
+	\labelcref{eq_39B22_1hfe00100098_1} \vdash (f(1) < 1) \lor (f(1) = 1) \lor (f(1) > 1)
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_16}
+	\labelcref{eq_39B22_1hfe00100098_14} \vdash (f(1) < 1) \implies f\left(\frac{1}{f(1)}\right) > 1
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_17}
+	\labelcref{eq_39B22_1hfe00100098_16}, \labelcref{eq_39B22_1hfe00100098_3} \vdash (f(1) < 1) \implies 1 > 1
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_18}
+	\labelcref{eq_39B22_1hfe00100098_17}, \vdash f(1) \ge 1
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_19}
+	\labelcref{eq_39B22_1hfe00100098_2} \vdash \forall x , n \in \mathbb{R}^{+} \ f(x+ n + 1) = f(x + n) + 1
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_20}
+	\labelcref{eq_39B22_1hfe00100098_19} \vdash \forall x \in \mathbb{R}^{+}\ (n \in \mathbb{N} \land f(x+ n) = f(x) + n) \implies f(x+n+1) = f(x) + n + 1
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_21}
+	\labelcref{eq_39B22_1hfe00100098_2}, \labelcref{eq_39B22_1hfe00100098_20} \vdash \forall x \in \mathbb{R}\ \forall n \in \mathbb{N}\ f(x+n) = f(x) + n
+\end{equation}
+
+Sustituyendo $x := 1 + m$ en \labelcref{eq_39B22_1hfe00100098_3} se obtiene que
+
+\begin{equation} \label{eq_39B22_1hfe00100098_22}
+	\labelcref{eq_39B22_1hfe00100098_3}, \labelcref{eq_39B22_1hfe00100098_21} \vdash \forall n \in \mathbb{N}\ f\left(\frac{1}{f(1) + n}\right) = \frac{1}{1 + n}
+\end{equation}
+
+Supongamos que $f(1) > 1$ entonces, por la propiedad arquimedeana de los números reales
+
+\begin{equation} \label{eq_39B22_1hfe00100098_23}
+	 f(1) > 1 \implies \exists m \in \mathbb{N}\ (m+1) \cdot (f(1) - 1) > 1
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_24}
+	\labelcref{eq_39B22_1hfe00100098_23} \vdash f(1) > 1 \implies \exists m \in \mathbb{N}\ f(1) > 1 + \frac{1}{m+1}
+\end{equation}
+
+... pero combinando \cref{eq_39B22_1hfe00100098_22} y \cref{eq_39B22_1hfe00100098_3}, para ese mismo valor de $m$ se cumple que
+
+\begin{equation} \label{eq_39B22_1hfe00100098_25}
+	\labelcref{eq_39B22_1hfe00100098_22}, \labelcref{eq_39B22_1hfe00100098_3} \vdash f\left(1 + \frac{1}{f(1) + m}\right) = 1 + \frac{1}{1+m}
+\end{equation}
+
+Es decir que 
+
+\begin{equation} \label{eq_39B22_1hfe00100098_26}
+	\labelcref{eq_39B22_1hfe00100098_25}, \labelcref{eq_39B22_1hfe00100098_24} \vdash \left(1 < 1 + \frac{1}{f(1) + m}\right) \land \left(f(1) > f\left(1 + \frac{1}{f(1) + m}\right)\right)
+\end{equation}
+
+Lo cual contradice que $f$ es monótona creciente, como fue demostrado en \labelcref{eq_39B22_1hfe00100098_13} . Por tal razón 
+
+\begin{equation} \label{eq_39B22_1hfe00100098_27}
+	\labelcref{eq_39B22_1hfe00100098_13}, \labelcref{eq_39B22_1hfe00100098_26}, \labelcref{eq_39B22_1hfe00100098_18} \vdash f(1) = 1
+\end{equation}
+
+\begin{claim}
+	$\forall q \in \mathbb{Q}\ f(q) = q$
+\end{claim}
+\textit{Proof} Comencemos por los números naturales.y desarrollemos la demostración a las fracciones
+
+\begin{equation} \label{eq_39B22_1hfe00100098_28}
+	\labelcref{eq_39B22_1hfe00100098_27}, \labelcref{eq_39B22_1hfe00100098_19} \vdash \forall n \in \mathbb{N}^{+}\ f(n) = n
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_29}
+	\labelcref{eq_39B22_1hfe00100098_28}, \labelcref{eq_39B22_1hfe00100098_3} \vdash \forall n \in \mathbb{N}^{+}\ f\left(\frac{1}{n}\right) = \frac{1}{n}
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_30}
+	\labelcref{eq_39B22_1hfe00100098_29} \vdash f\left(\frac{1}{2}\right) = \frac{1}{2}
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_31}
+	\labelcref{eq_39B22_1hfe00100098_19}, \labelcref{eq_39B22_1hfe00100098_30} \vdash \forall n \in \mathbb{N}^{+}\ f\left(\frac{2n+1}{2}\right) = \frac{2n+1}{2}
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_32}
+	\labelcref{eq_39B22_1hfe00100098_28}, \labelcref{eq_39B22_1hfe00100098_31} \vdash \forall n \in \mathbb{N}^{+}\ f\left(\frac{n}{2}\right) = \frac{n}{2}
+\end{equation}
+
+Los resultados en \labelcref{eq_39B22_1hfe00100098_28} y \labelcref{eq_39B22_1hfe00100098_32} pueden establecer el inicio de una inducción matemática sobre el valor del denomindor. La misma se lleva a cabo de la siguiente manera.. Supongamos que 
+
+\begin{equation} \label{eq_39B22_1hfe00100098_33}
+	\forall q \in \mathbb{N}\ (q \leq n) \implies \forall p \in \mathbb{N}\ f\left(\frac{p}{q}\right) = \frac{p}{q}
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_34}
+	\labelcref{eq_39B22_1hfe00100098_3} \vdash f\left(\frac{1}{f\big(\frac{n+1}{q}\big)}\right) = \frac{q}{n+1}
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_35}
+	\labelcref{eq_39B22_1hfe00100098_34} , \labelcref{eq_39B22_1hfe00100098_33} \vdash \forall q \in \mathbb{N}\ (q \leq n) \implies f(\left(\frac{q}{n+1}\right) = \frac{q}{n+1}
+\end{equation}
+
+El paso de inducción queda probado , pero solamente para los numeradores menores que $n+1$ . Para las fracciones superiores a $1$ basta con constatar que se cumple que
+
+\begin{equation} \label{eq_39B22_1hfe00100098_36}
+	\labelcref{eq_39B22_1hfe00100098_35} , \labelcref{eq_39B22_1hfe00100098_21} \vdash \forall k,q \in \mathbb{N}\ (q \leq n) \implies f(\left(\frac{k \cdot (n+1) + q}{n+1}\right) = \frac{k \cdot (n+1) + q}{n+1}
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_37}
+	\therefore \labelcref{eq_39B22_1hfe00100098_32}, \labelcref{eq_39B22_1hfe00100098_36} \vdash \forall q \in \mathbb{Q}\ f(q) = q
+\end{equation}
+
+\hfill $\square$
+
+Apelemos a la propiedad de los números reales que permite asegurar que entre dos números reales diferentes siempre hay un número racional, es decir 
+
+\begin{equation} \label{eq_39B22_1hfe00100098_38}
+	\forall x,y \in \mathbb{R}\ (x < y) \implies  \exists q \in \mathbb{Q}\ (x < q) \land (q < y)
+\end{equation}
+
+Suponngam,que hay algún valor $x\textsubscript{0} \in \mathbb{R}^{+}$ para el cual la función se comporte de manera diferente a como lo hace para los números racionales, entonces
+
+\begin{equation} \label{eq_39B22_1hfe00100098_39}
+	x\textsubscript{0} \neq f(x\textsubscript{0}) \implies x\textsubscript{0} < f(x\textsubscript{0}) \lor x\textsubscript{0} > f(x\textsubscript{0})
+\end{equation}
+
+En el primer caso ...
+
+\begin{equation} \label{eq_39B22_1hfe00100098_40}
+	 \labelcref{eq_39B22_1hfe00100098_38} \vdash x\textsubscript{0} < f(x\textsubscript{0}) \implies  \exists q \in \mathbb{Q}\ (x\textsubscript{0} < q) \land (q < f(x\textsubscript{0}))
+\end{equation}
+
+... y considerando que $f$ es estrictamente creciente ...
+
+\begin{equation} \label{eq_39B22_1hfe00100098_41}
+	\labelcref{eq_39B22_1hfe00100098_13} \vdash (x\textsubscript{0} < q) \implies (f(x\textsubscript{0}) < f(q))
+\end{equation}
+
+Combinando los resultdos ya obtenidos ...
+
+\begin{equation} \label{eq_39B22_1hfe00100098_42}
+	\labelcref{eq_39B22_1hfe00100098_40}, \labelcref{eq_39B22_1hfe00100098_41}, \labelcref{eq_39B22_1hfe00100098_13}, \labelcref{eq_39B22_1hfe00100098_37}  \vdash x\textsubscript{0} < f(x\textsubscript{0}) \implies  \exists q \in \mathbb{Q}\ (f(x\textsubscript{0}) < q) \land (q < f(x\textsubscript{0}))
+\end{equation}
+
+Lo cual es una contradicción. El otro caso se demuestra de maner análoga como sigue .
+
+\begin{equation} \label{eq_39B22_1hfe00100098_43}
+	\labelcref{eq_39B22_1hfe00100098_38} \vdash f(x\textsubscript{0}) < x\textsubscript{0} \implies  \exists q \in \mathbb{Q}\ (f(x\textsubscript{0}) < q) \land (q < x\textsubscript{0})
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_44}
+	\labelcref{eq_39B22_1hfe00100098_13} \vdash (q < x\textsubscript{0}) \implies (f(q) < f(x\textsubscript{0}))
+\end{equation}
+\begin{equation} \label{eq_39B22_1hfe00100098_45}
+	\labelcref{eq_39B22_1hfe00100098_43}, \labelcref{eq_39B22_1hfe00100098_44}, \labelcref{eq_39B22_1hfe00100098_13}, \labelcref{eq_39B22_1hfe00100098_37}  \vdash x\textsubscript{0} < f(x\textsubscript{0}) \implies  \exists q \in \mathbb{Q}\ (f(x\textsubscript{0}) < q) \land (q < f(x\textsubscript{0}))
+\end{equation}
+
+\begin{equation}
+	\therefore \forall x \in \mathbb{R}\ f(x) = x
+\end{equation}
+
+\vspace{1cm}
+Lo que queda demostrado. \\\\\\
+
+
