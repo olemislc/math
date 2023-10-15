@@ -1,0 +1,153 @@
+\noindent\textbf{Solution } \\\\
+
+Se juega por turnos y en cada turno el estado se puede describir por una tupla $\langle n, s, b, r \rangle$ donde 
+
+\begin{itemize}
+	\item{$n \in \mathbb{N}$ la cantidad de turnos jugados}
+	\item{$s \in \{R, B\}$ es el color de la piedra que se sacó para llegar a la posición en ese turno, o $\emptyset$ en el caso de la posición inicial}
+	\item{$b \in \mathbb{N}$ es el número de piedras azules que se han extraído}
+	\item{$r \in \mathbb{N}$  es el número de piedras rojas que se han extraído}
+\end{itemize}
+
+La sucesión de jugadas se puede definir entonces como
+
+\begin{equation} \label{eq_91_rmc2007dr072_1}
+	\sigma(0) = \langle 0, \emptyset,0,0 \rangle 
+\end{equation}
+\begin{equation} \label{eq_91_rmc2007dr072_2}
+	\sigma(n) =  \langle n, s, b, r \rangle, b \neq r \vdash \sigma(n+1) =
+	\begin{cases}
+		\langle n+1, R,r+1,b \rangle \\
+		\langle n+1, B,r,b+1 \rangle \\
+	\end{cases}
+\end{equation}
+
+Supongamos que se juega indefinidamennte y que al arribar a la condición de terminación , o sea la misma cantidad de piedras azules y rojas, el juego se resetea a las condiciones iniciales. En ese caso
+
+\begin{equation} \label{eq_91_rmc2007dr072_3}
+	\sigma(n) =  \langle n, s, x, x \rangle \vdash \sigma(n+1) = \langle n+1, \emptyset,0,0 \rangle
+\end{equation}
+
+Considerando esta representación supongamos que la última piedra que se sacó fue roja, entonces por las condicioes del problema , la configuración final a la que se llega es
+
+\begin{equation} \label{eq_91_rmc2007dr072_4}
+	\sigma(10) = \langle 10, R, 5, 5 \rangle
+\end{equation}
+
+... y el hecho de que no se haya extraído tres piedras consecutivas del mismo color se expresa por 
+
+\begin{equation} \label{eq_91_rmc2007dr072_5}
+\begin{gathered}
+	\sigma(k) = \langle k, c_k, b_k, r_k \rangle , \\
+	\sigma(k+1) = \langle k+1, c_{k+1}, b_{k+1}, r_{k+1} \rangle, \\
+	\sigma(k+2) = \langle k+2, c_{k+2}, b_{k+2}, r_{k+2} \rangle \vdash \neg (c_{k} = c_{k+1} = c_{k+2})
+\end{gathered}
+\end{equation}
+
+\begin{claim}
+	Si se llega a una configuración en una partida donde la diferencia entre las cantidades de piedras de cada color es $1$, entonces en la jugada anterior se sacó una piedra del color que quedó con la menor cantidad.
+\end{claim}
+
+\textit{Proof} De la definición de la sucesión de jugadas hay que constatar que conociendo la última configuración es posible determinar de manera precisa la cantidad de piedras en la configuración anterior.
+
+\begin{equation} \label{eq_91_rmc2007dr072_6}
+	\sigma(k) = \langle k, B, b, r \rangle \vdash \exists c \in \{B,R\}\ \sigma(k-1) = \langle k-1, c, b-1, r \rangle
+\end{equation}
+\begin{equation} \label{eq_91_rmc2007dr072_7}
+	\sigma(k) = \langle k, R, b, r \rangle \vdash \exists c \in \{B,R\}\ \sigma(k-1) = \langle k-1, c, b, r-1 \rangle
+\end{equation}
+
+Por lo tanto 
+
+\begin{equation} \label{eq_91_rmc2007dr072_8}
+	\sigma(k) = \langle k, B, x+1, x \rangle \implies \exists c \in \{B,R\}\ \sigma(k-1) = \langle k-1, c, x, x \rangle
+\end{equation}
+\begin{equation} \label{eq_91_rmc2007dr072_9}
+	\sigma(k) = \langle k, R, x, x+1 \rangle \implies \exists c \in \{B,R\}\ \sigma(k-1) = \langle k-1, c, x, x \rangle
+\end{equation}
+
+En ambos casos en el paso $k-1$ se hubiera acabado el juego, lo cual contradice la regla \cref{eq_91_rmc2007dr072_3} del reseteo, por tanto se puede concluir que
+
+\begin{equation} \label{eq_91_rmc2007dr072_10}
+	\sigma(k) = \langle k, c, x+1, x \rangle \implies c = R
+\end{equation}
+\begin{equation} \label{eq_91_rmc2007dr072_11}
+	\sigma(k) = \langle k, c, x, x+1 \rangle \implies c = B
+\end{equation}
+\hfill $\square$
+
+\begin{claim}
+	Si se llega a dos configuraciones sucesivas donde se sacan piedras del mismo color, entonces a la configuración que les precede se llega sacando una piedra del otro color.
+\end{claim}
+
+\textit{Proof}  Esta conclusión se deriva de forma directa e inmediata del hecho de que no se pueden trener tres piedras del mismo color sucesivamente.
+
+\begin{equation} \label{eq_91_rmc2007dr072_12}
+	\begin{gathered}
+		\sigma(k) = \langle k, c, b_k, r_k \rangle , \\
+		\sigma(k+1) = \langle k+1, c, b_{k+1}, r_{k+1} \rangle, \\
+		\sigma(k-1) = \langle k-1, c_{k-1}, b_{k-1}, r_{k-1} \rangle \vdash c \neq c_{k-1}
+	\end{gathered}
+\end{equation}
+\hfill $\square$
+
+\begin{claim}
+	Después de de sacar $6$ piedras, $4$ son azules y $2$ son rojas.
+\end{claim}
+
+\textit{Proof} Partiendo de los resultados anteriores
+
+\begin{equation} \label{eq_91_rmc2007dr072_13}
+	\labelcref{eq_91_rmc2007dr072_1}, \labelcref{eq_91_rmc2007dr072_7}, \labelcref{eq_91_rmc2007dr072_10} \vdash \sigma(9) = \langle 9, R, 5, 4 \rangle
+\end{equation}
+\begin{equation} \label{eq_91_rmc2007dr072_14}
+	\labelcref{eq_91_rmc2007dr072_7}, \labelcref{eq_91_rmc2007dr072_12}, \labelcref{eq_91_rmc2007dr072_13} \vdash \sigma(8) = \langle 8, B, 5, 3 \rangle
+\end{equation}
+\begin{equation} \label{eq_91_rmc2007dr072_15}
+	\labelcref{eq_91_rmc2007dr072_6}, \labelcref{eq_91_rmc2007dr072_10}, \labelcref{eq_91_rmc2007dr072_14} \vdash \sigma(7) = \langle 7, R, 4, 3 \rangle
+\end{equation}
+
+... por lo tanto
+
+\begin{equation} \label{eq_91_rmc2007dr072_16}
+	\labelcref{eq_91_rmc2007dr072_7}, \labelcref{eq_91_rmc2007dr072_15} \vdash \exists c_6 \in \{B,R\}\ \sigma(6) = \langle 7, c_6, 4, 2 \rangle
+\end{equation}
+\hfill $\square$
+
+Si se supone que 
+
+\begin{equation} \label{eq_91_rmc2007dr072_17}
+	\sigma(5) = \langle 5, c_5, b_5, r_5 \rangle
+\end{equation}
+
+\begin{claim}
+	Si la sexta piedra es roja, la quinta es azul.
+\end{claim}
+
+\textit{Proof} Se deriva directamente del hecho de que no se saca tres piedras sucesivas del mismo color.
+
+\begin{equation} \label{eq_91_rmc2007dr072_18}
+	\labelcref{eq_91_rmc2007dr072_12}, \labelcref{eq_91_rmc2007dr072_16}, \labelcref{eq_91_rmc2007dr072_17} \vdash c_6 = R \implies c_5=B
+\end{equation}
+\hfill $\square$
+
+\begin{claim}
+	Si la sexta piedra es roja, la quinta es azul.
+\end{claim}
+
+\textit{Proof} Se deriva de lo ya demostrado anteriormente
+
+\begin{equation} \label{eq_91_rmc2007dr072_19}
+	\labelcref{eq_91_rmc2007dr072_6}, \labelcref{eq_91_rmc2007dr072_16}, \labelcref{eq_91_rmc2007dr072_17} \vdash c_6 = B \implies (b_5 = 3) \land (r_5=2)
+\end{equation}
+\begin{equation} \label{eq_91_rmc2007dr072_20}
+	\labelcref{eq_91_rmc2007dr072_17}, \labelcref{eq_91_rmc2007dr072_19}, \labelcref{eq_91_rmc2007dr072_10} \vdash c_6 = B \implies \sigma(5) = \langle 5, R, 3, 2 \rangle
+\end{equation}
+\hfill $\square$
+
+\begin{equation} \label{eq_91_rmc2007dr072_21}
+	\therefore \labelcref{eq_91_rmc2007dr072_20}, \labelcref{eq_91_rmc2007dr072_18} \vdash c_5 \neq c_6
+\end{equation}
+
+\vspace{1cm}
+Lo que demuestra que el color de la quinta piedra es diferente al de la sexta. \\\\\\
