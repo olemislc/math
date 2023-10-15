@@ -1,0 +1,65 @@
+\noindent\textbf{Solution } \\\\
+
+En lo sucesivo se hará referencia a los siguientes axiomas de los números reales
+
+\input{share/foundations/real_order.tex}
+
+El enunciado del problema se traduce a
+
+\begin{equation} \label{eq_39B22_rmc2007dr093_0}
+	f: \mathbb{N}^+ \to \mathbb{N}^+
+\end{equation}
+\begin{equation} \label{eq_39B22_rmc2007dr093_1}
+	\forall x,y \in \mathbb{N}^+\ x^2 + f(y) \mid f(x)^2 + y
+\end{equation}
+
+Sustituyendo para $x = y = 1$ 
+
+\begin{equation} \label{eq_39B22_rmc2007dr093_2}
+	\frac{f(1)^2 + 1}{1+f(1)} \in \mathbb{N}
+\end{equation}
+
+... pero hay que constatar que
+
+\begin{equation} \label{eq_39B22_rmc2007dr093_3}
+	\frac{f(1)^2 + 1}{1+f(1)} = f(1) - 1 + \frac{2}{1+f(1)}
+\end{equation}
+\begin{equation} \label{eq_39B22_rmc2007dr093_4}
+	\labelcref{eq_39B22_rmc2007dr093_3}, \labelcref{eq_39B22_rmc2007dr093_2} \vdash 1+f(1) \mid 2
+\end{equation}
+\begin{equation} \label{eq_39B22_rmc2007dr093_5}
+	\labelcref{eq_39B22_rmc2007dr093_4}, \labelcref{eq_39B22_rmc2007dr093_0} \vdash f(1) = 1
+\end{equation}
+
+Al hallar este valor se puede avanzar en la solución de la siguiente forma
+
+\begin{equation} \label{eq_39B22_rmc2007dr093_6}
+	\labelcref{eq_39B22_rmc2007dr093_1} \vdash \forall x,y \in \mathbb{N}^+\ x^2 + f(y) \leq f(x)^2 + y
+\end{equation}
+
+Sustituyendo $y=1$
+
+\begin{equation} \label{eq_39B22_rmc2007dr093_7}
+	\labelcref{eq_39B22_rmc2007dr093_1}, \labelcref{eq_39B22_rmc2007dr093_5} \vdash \forall x \in \mathbb{N}^+\ x^2 + 1 \leq f(x)^2 + 1
+\end{equation}
+\begin{equation} \label{eq_39B22_rmc2007dr093_8}
+	\labelcref{eq_39B22_rmc2007dr093_7} \vdash \forall x \in \mathbb{N}^+\ f(x) \geq x
+\end{equation}
+
+Después de una sustitución similar para $x = 1$ se obtiene que 
+
+\begin{equation} \label{eq_39B22_rmc2007dr093_9}
+	\labelcref{eq_39B22_rmc2007dr093_6}, \labelcref{eq_39B22_rmc2007dr093_5} \vdash \forall y \in \mathbb{N}^+\ 1 + f(y) \leq 1 + y
+\end{equation}
+\begin{equation} \label{eq_39B22_rmc2007dr093_10}
+	\labelcref{eq_39B22_rmc2007dr093_9} \vdash \forall y \in \mathbb{N}^+\ f(y) \leq y
+\end{equation}
+
+Considerando que la relación de órden es antisimética 
+
+\begin{equation} \label{eq_39B22_rmc2007dr093_11}
+	\therefore \labelcref{eq_39B22_rmc2007dr093_10}, \labelcref{eq_39B22_rmc2007dr093_8}, \cref{real_leq_asymm} \vdash \forall x \in \mathbb{N}^+\ f(x) = x
+\end{equation}
+
+\vspace{1cm}
+Lo que demostra que la única función con esas condiciones es $f = x \mapsto x$. \\\\\\
