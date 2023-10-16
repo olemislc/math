@@ -1,0 +1,310 @@
+\noindent\textbf{Solution } \\\\
+
+La demostración se apoyará en las conclusiones de los siguientes teoremas. La fundamentación de los mismos no se incluye al ser simples y relativamente evidentes.
+
+\begin{theorem} \label{irnum_sum_rational}
+	La suma de dos números, uno racional y el otro irracional, es un número irracional .
+	
+	\begin{equation} \label{eq_irnum_sum_rational}
+		\forall \epsilon \in \mathbb{R} \setminus \mathbb{Q}\ \forall q \in \mathbb{Q}\ \epsilon + q \in \mathbb{R} \setminus \mathbb{Q}
+	\end{equation}
+\end{theorem}
+
+\begin{theorem} \label{irnum_closure_sqrt}
+	La raíz cuadrada de un número irracional siempre es otro número irracional .
+	
+	\begin{equation} \label{eq_irnum_closure_sqrt}
+		\forall \epsilon \in \mathbb{R} \setminus \mathbb{Q}\ \sqrt{\epsilon} \in \mathbb{R} \setminus \mathbb{Q}
+	\end{equation}
+\end{theorem}
+
+\begin{theorem} \label{irnum_nat_sqrt}
+	La raíz cuadrada de un número entero que no es cuadrado perfecto es un número irracional .
+	
+	\begin{equation} \label{eq_irnum_nat_sqrt}
+		\forall n \in \mathbb{N}\ (\sqrt{n} \in \mathbb{R} \setminus \mathbb{Q}) \lor (\sqrt{n} \in \mathbb{N})
+	\end{equation}
+	\begin{equation}
+		(n \in \mathbb{N}) \land (\sqrt{n} \in \mathbb{N}) \leftrightarrow \exists r \in \mathbb{N}\ n = r^{2}
+	\end{equation}
+\end{theorem}
+
+Retornando al problema original . Para lograr llegar a ciertas conclusiones, se define para cada número natural $n \in \mathbb{N}$ el conjunto $\mathbb{M}\textsubscript{n}$ de los números enteros positivos menores o iguales que $n$, es decir 
+
+\begin{equation} \label{eq_11_bmo200700003_1}
+	\forall n \in \mathbb{N}\ \mathbb{M}\textsubscript{n} := \{i \in \mathbb{N} \mid 1 \leq i \leq n\}
+\end{equation}
+
+... y además las sucesiones definidas por
+
+\begin{equation} \label{eq_11_bmo200700003_2}
+	\prescript{n}{}{S_k} = 
+	\begin{cases}
+		0 & \forall k \in \mathbb{N}\ k > n \\
+		\sqrt{\sigma(k) + \prescript{n}{}{S_{k+1}}} & \forall k \in \mathbb{M}\textsubscript{n}
+	\end{cases}
+\end{equation}
+
+Haciendo uso de estas definiciones entonces el enunciado del problema consiste hallar todos ls valores de $n$ para los cuales 
+
+\begin{equation} \label{eq_11_bmo200700003_3}
+	\prescript{n}{}{S_1} \in \mathbb{Q}
+\end{equation}
+
+Condición que a lo largo de la demostración se supondrá que se cumple, para de ella derivar ciertos hechos necesarios para hallar la solución.
+
+\begin{claim}
+	Si un elemento de la sucesion $\prescript{n}{}{S_k}$ es igual a $1$ entonces el número $1$ está al final de la permutación.
+\end{claim}
+
+\textit{Proof} Los números de la sucesión se obtienen hallando la raíz de un número mayor o igual que $1$ , es decir
+
+\begin{equation} \label{eq_11_bmo200700003_3a}
+	\labelcref{eq_11_bmo200700003_2} \vdash \prescript{n}{}{S_k} = 1 \implies \prescript{n}{}{S_{k+1}} = 0 \land \sigma(k) = 1
+\end{equation}
+
+La única manera de que ambas condiciones coincidan es cuando se cumpla que
+
+\begin{equation} \label{eq_11_bmo200700003_3b}
+	\labelcref{eq_11_bmo200700003_2}, \labelcref{eq_11_bmo200700003_3a} \vdash \prescript{n}{}{S_k} = 1 \implies k=n \land \sigma(n) = 1
+\end{equation}
+\hfill $\square$
+
+\begin{claim}
+	La sucesión $\prescript{n}{}{S_k}$ está acotada superiormente por $\sqrt{n} + 1$
+\end{claim}
+
+\textit{Proof} Consideremos otra sucesión en la cual todos los enteros en los radicales de la expresión se sustituyen por $n$ , es decir
+
+\begin{equation} \label{eq_11_bmo200700003_4}
+	\prescript{n}{}{U_k} = 
+	\begin{cases}
+		0 & \forall k \in \mathbb{N}\ k > n \\
+		\sqrt{n + \prescript{n}{}{U_{k+1}}} & \forall k \in \mathbb{M}\textsubscript{n}
+	\end{cases}
+\end{equation}
+
+Como $\sigma$ es una permutación de $\mathbb{M}_n$ los valores de la serie $\prescript{n}{}{U_k}$ son mayores que los correspondientes de $\prescript{n}{}{S_k}$ , es decir
+
+\begin{equation} \label{eq_11_bmo200700003_5}
+	 \labelcref{eq_11_bmo200700003_2},  \labelcref{eq_11_bmo200700003_4}, \forall  k\ \sigma(k) \in \mathbb{M}_n \vdash \forall k,n\ \prescript{n}{}{S_k} \leq \prescript{n}{}{U_k}
+\end{equation}
+
+Por otra parte 
+
+\begin{equation} \label{eq_11_bmo200700003_6}
+	\labelcref{eq_11_bmo200700003_4} \vdash \prescript{n}{}{U_n} = \sqrt{n}
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_7}
+	\labelcref{eq_11_bmo200700003_6} \vdash \prescript{n}{}{U_n} < \sqrt{n} + 1
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_8}
+	(\sqrt{n} + 1)^2 > n + \sqrt{n} + 1
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_9}
+	\labelcref{eq_11_bmo200700003_4} \vdash \forall k \in \mathbb{M}_n\ \prescript{n}{}{U_k}^2 = n + \prescript{n}{}{U_{k+1}}
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_10}
+	\labelcref{eq_11_bmo200700003_8}, \labelcref{eq_11_bmo200700003_9} \vdash \forall k \in \mathbb{M}_n\ \prescript{n}{}{U_{k+1}} < \sqrt{n} + 1 \implies \prescript{n}{}{U_{k}} < \sqrt{n} + 1
+\end{equation}
+
+Combinando \cref{eq_11_bmo200700003_7} con \cref{eq_11_bmo200700003_10} se establece la inducción matemática que permite afirmar que 
+
+\begin{equation} \label{eq_11_bmo200700003_11}
+	\labelcref{eq_11_bmo200700003_7}, \labelcref{eq_11_bmo200700003_10} \vdash \forall k \in \mathbb{M}_n\ \prescript{n}{}{U_{k}} < \sqrt{n} + 1
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_11a}
+	\labelcref{eq_11_bmo200700003_5}, \labelcref{eq_11_bmo200700003_11} \vdash \forall k \in \mathbb{M}_n\ \prescript{n}{}{S_{k}} < \sqrt{n} + 1
+\end{equation}
+\hfill $\square$
+
+\begin{claim}
+	Para que $\prescript{n}{}{S_1}$ sea un número racional todos los valores de la serie $\prescript{n}{}{S_k}$ tienen que ser números enteros.
+\end{claim}
+
+\textit{Proof} La conclusión es inmediata si se consideran \cref*{irnum_sum_rational}, \cref{irnum_closure_sqrt}
+
+\begin{equation} \label{eq_11_bmo200700003_12}
+	\cref{irnum_sum_rational}, \cref{irnum_closure_sqrt}, \labelcref{eq_11_bmo200700003_2} \vdash \forall k \in \mathbb{M}_n\ \prescript{n}{}{S_{k+1}} \in \mathbb{R} \setminus \mathbb{Q} \implies \prescript{n}{}{S_{k}} \in \mathbb{R} \setminus \mathbb{Q}
+\end{equation}
+
+... y de este hecho se deduce que la existencia de un valor irracional en la sucesión legitimaría una inducción matemática que demostraría que a partir de este punto todos los valores sucesivos también serían irracionales , en particular $\prescript{n}{}{S_1}$. Es decir 
+
+\begin{equation} \label{eq_11_bmo200700003_13}
+	\labelcref{eq_11_bmo200700003_12} \vdash (\exists k \in \mathbb{M}_n\ \prescript{n}{}{S_{k}} \in \mathbb{R} \setminus \mathbb{Q}) \implies \prescript{n}{}{S_{1}} \in \mathbb{R} \setminus \mathbb{Q}
+\end{equation}
+
+La contradicción con \cref{eq_11_bmo200700003_3} nos lleva a concluir que 
+
+\begin{equation} \label{eq_11_bmo200700003_14}
+	\labelcref{eq_11_bmo200700003_3}, \labelcref{eq_11_bmo200700003_13} \vdash \prescript{n}{}{S_{1}} \in \mathbb{Q} \implies \forall k \in \mathbb{M}_n\ \neg(\prescript{n}{}{S_{k}} \in \mathbb{R} \setminus \mathbb{Q})
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_15}
+	\labelcref{eq_11_bmo200700003_2}, \labelcref{eq_11_bmo200700003_14} \vdash \forall k \in \mathbb{M}_n\ \neg(\prescript{n}{}{S_{k}} \in \mathbb{R} \setminus \mathbb{Q})
+\end{equation}
+
+... pero teniendo en cuenta que el primer valor no nulo de la serie es la raíz de un número entero, se puede establecer la inducción matemática que se detalla a continuación
+
+\begin{equation} \label{eq_11_bmo200700003_16}
+	\labelcref{eq_11_bmo200700003_2} \vdash \prescript{n}{}{S_n} = \sqrt{\sigma(n)}
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_17}
+	\cref{irnum_nat_sqrt}, \labelcref{eq_11_bmo200700003_16}, \labelcref{eq_11_bmo200700003_15} \vdash \prescript{n}{}{S_n} \in \mathbb{N}
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_18}
+	\cref{irnum_nat_sqrt}, \labelcref{eq_11_bmo200700003_2}, \labelcref{eq_11_bmo200700003_15} \vdash \prescript{n}{}{S_{k+1}} \in \mathbb{N} \implies \prescript{n}{}{S_{k}} \in \mathbb{N}
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_19}
+	\labelcref{eq_11_bmo200700003_17}, \labelcref{eq_11_bmo200700003_18} \vdash \forall k \in \mathbb{M}_n \prescript{n}{}{S_{k}} \in \mathbb{N}
+\end{equation}
+
+... y en particular ...
+
+\begin{equation} \label{eq_11_bmo200700003_20}
+	\labelcref{eq_11_bmo200700003_19} \vdash \prescript{n}{}{S_{1}} \in \mathbb{N}
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_21}
+	\labelcref{eq_11_bmo200700003_19} \vdash \prescript{n}{}{S_{n}} \in \mathbb{N}
+\end{equation}
+\hfill $\square$
+
+\begin{claim}
+	El último número de la permutación $\sigma$ tiene que ser un cuadrado perfecto. Si un número no es cuadrado perfecto no puede ser el último valor de la permutación $\sigma$.
+\end{claim}
+
+\textit{Proof} Este es un corolario de lo demostrado anteriormente
+
+\begin{equation} \label{eq_11_bmo200700003_22}
+	\labelcref{eq_11_bmo200700003_21}, \labelcref{eq_11_bmo200700003_16} \vdash \exists i \in \mathbb{N}\ \sigma(n) = i^2
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_23}
+	\labelcref{eq_11_bmo200700003_2}, \labelcref{eq_11_bmo200700003_22} \vdash \forall k \in \mathbb{M}_n (\nexists i \in \mathbb{N}\ k = i^2) \land (\sigma(j) = k) \implies j < n
+\end{equation}
+
+\hfill $\square$
+
+\begin{claim}
+	Si $\prescript{n}{}{S_1} \in \mathbb{N}$ entonces $n<4$.
+\end{claim}
+
+\textit{Proof} Consideremos ahora la parte entera de $\sqrt{n}$ y denotémosla por $r$ entonces
+
+\begin{equation} \label{eq_11_bmo200700003_24}
+	(r \in \mathbb{N}) \land (r^2 \leq n) \land (n < (r+1)^2)
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_25}
+	\labelcref{eq_11_bmo200700003_24} \vdash \sqrt{n} + 1 < r+2
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_25a}
+	\labelcref{eq_11_bmo200700003_11a}, \labelcref{eq_11_bmo200700003_25} \vdash \forall k \in \mathbb{M}_n\ \prescript{n}{}{S_k} < r+2
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_26}
+	\labelcref{eq_11_bmo200700003_24} \vdash r>1 \implies (r^2 - 1 \in \mathbb{M}_n) \land (\nexists p \in \mathbb{N}\ r^2 - 1 = p^2)
+\end{equation}
+
+Esto quiere decir que el número $r^2 - 1$ tiene que tener una posición en la permutación $\sigma$ y no puede ser el último. Es decir ...
+
+\begin{equation} \label{eq_11_bmo200700003_27}
+	\labelcref{eq_11_bmo200700003_26}, \labelcref{eq_11_bmo200700003_23} \vdash (r>1) \land (\sigma(i) = r^2-1) \implies i<n
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_28}
+	\labelcref{eq_11_bmo200700003_2}, \labelcref{eq_11_bmo200700003_27} \vdash (r>1) \land (\sigma(i) = r^2-1) \implies \prescript{n}{}{S_i} = \sqrt{r^2 - 1 + \prescript{n}{}{S_{i+1}}}
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_29}
+	\labelcref{eq_11_bmo200700003_2}, \labelcref{eq_11_bmo200700003_27}, \labelcref{eq_11_bmo200700003_28} \vdash (r>1) \land (\sigma(i) = r^2-1) \implies \prescript{n}{}{S_i} \geq r
+\end{equation}
+\\
+... pero retomando los resultados probados anteriormente ...
+
+\begin{equation} \label{eq_11_bmo200700003_30}
+	\labelcref{eq_11_bmo200700003_25a}, \labelcref{eq_11_bmo200700003_29} \vdash (r>1) \land (\sigma(i) = r^2-1) \implies \prescript{n}{}{S_i} \in \{r, r+1\}
+\end{equation}
+
+El caso $\prescript{n}{}{S_i} = r+1$ es fácilmennte descartable ya que
+
+\begin{equation} \label{eq_11_bmo200700003_31}
+\begin{gathered}
+	\labelcref{eq_11_bmo200700003_2}, \labelcref{eq_11_bmo200700003_27} \vdash (r>1) \land (\sigma(i) = r^2-1) \land (\prescript{n}{}{S_{i}} = r+1) \implies \\
+	\prescript{n}{}{S_{i+1}} = (r+1)^2 - (r^2-1) = 2r+2
+\end{gathered}
+\end{equation}
+
+... y como ...
+
+\begin{equation} \label{eq_11_bmo200700003_32}
+	r>1 \implies 2r+2 > r+2
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_33}
+	\labelcref{eq_11_bmo200700003_31}, \labelcref{eq_11_bmo200700003_32} \vdash (r>1) \land (\sigma(i) = r^2-1) \land (\prescript{n}{}{S_{i}} = r+1) \implies \prescript{n}{}{S_{i+1}} > r+2
+\end{equation}
+
+... lo cual contradice lo demostrado en \cref{eq_11_bmo200700003_25a} . Razón por la cual 
+
+\begin{equation} \label{eq_11_bmo200700003_34}
+	\labelcref{eq_11_bmo200700003_25a}, \labelcref{eq_11_bmo200700003_33}, \labelcref{eq_11_bmo200700003_30} \vdash (r>1) \land (\sigma(i) = r^2-1) \implies \prescript{n}{}{S_{i}} = r
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_35}
+	\labelcref{eq_11_bmo200700003_28}, \labelcref{eq_11_bmo200700003_34}, \labelcref{eq_11_bmo200700003_27} \vdash (r>1) \land (\sigma(i) = r^2-1) \implies \prescript{n}{}{S_{i+1}} = 1
+\end{equation}
+
+... contrastando este resultado con los obtenidos ya anteriormente se constata que $r^2-1$ estaría en la penúltima posición de la permutación $\sigma$, la cual terminaría en $1$
+
+\begin{equation} \label{eq_11_bmo200700003_36}
+	\labelcref{eq_11_bmo200700003_3b}, \labelcref{eq_11_bmo200700003_35}, \vdash (r>1) \land (\sigma(i) = r^2-1) \implies (i=n-1) \land (\sigma(n) = 1)
+\end{equation}
+
+Ya se ha logrado encontrar la posición en la permutación $\sigma$ de dos de los números del intervalo. Del resto, es posible constar que 
+
+\begin{equation} \label{eq_11_bmo200700003_37}
+	\labelcref{eq_11_bmo200700003_1}, \labelcref{eq_11_bmo200700003_24}, \vdash r^2 \in \mathbb{M}_n
+\end{equation}
+
+Por lo tanto $r^2$ también debe estar ubicado en alguna posición después de realizar la permutación $\sigma$, y por \cref{eq_11_bmo200700003_36} no puede ser ni el último , ni el penúltimo. 
+
+\begin{equation} \label{eq_11_bmo200700003_38}
+		\labelcref{eq_11_bmo200700003_37}, \labelcref{eq_11_bmo200700003_36}, \vdash (r>1) \land (\sigma(i) = r^2-1) \land (\sigma(j) = r^2) \implies j < n-1
+\end{equation}
+
+... y entonces ...
+
+\begin{equation} \label{eq_11_bmo200700003_39}
+	\labelcref{eq_11_bmo200700003_2}, \labelcref{eq_11_bmo200700003_38} \vdash (r>1) \land (\sigma(i) = r^2-1) \land (\sigma(j) = r^2) \implies \prescript{n}{}{S_j}^2 = r^2 + \prescript{n}{}{S_{j+1}}
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_40}
+	\labelcref{eq_11_bmo200700003_39}, \labelcref{eq_11_bmo200700003_38} \vdash (r>1) \land (\sigma(i) = r^2-1) \land (\sigma(j) = r^2) \implies \prescript{n}{}{S_j} > r
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_41}
+	\labelcref{eq_11_bmo200700003_40}, \labelcref{eq_11_bmo200700003_25a} \vdash (r>1) \land (\sigma(i) = r^2-1) \land (\sigma(j) = r^2) \implies \prescript{n}{}{S_j} = r+1
+\end{equation}
+
+... y al calcular el elemento consecutivo de la serie ...
+
+\begin{equation} \label{eq_11_bmo200700003_42}
+	\labelcref{eq_11_bmo200700003_41}, \labelcref{eq_11_bmo200700003_2} \vdash (r>1) \land (\sigma(i) = r^2-1) \land (\sigma(j) = r^2) \implies \prescript{n}{}{S_{j+1}} = 2r+1
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_43}
+	r>1 \implies 2r+1 > r+2
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_44}
+	\labelcref{eq_11_bmo200700003_41}, \labelcref{eq_11_bmo200700003_2} \vdash (r>1) \land (\sigma(i) = r^2-1) \land (\sigma(j) = r^2) \implies \prescript{n}{}{S_{j+1}} > r+2
+\end{equation}
+
+Lo cual contradice lo demostrado en \cref{eq_11_bmo200700003_25a}. Por tanto no hay lugar donde ubicar este número en la permutación y cumplir al mismo tiempo las condiciones del problema. Al haber agotado todos los casos posibles, se concluye que 
+
+\begin{equation} \label{eq_11_bmo200700003_45}
+	\labelcref{eq_11_bmo200700003_44}, \labelcref{eq_11_bmo200700003_25a} \vdash (r=1)
+\end{equation}
+\begin{equation} \label{eq_11_bmo200700003_46}
+	\labelcref{eq_11_bmo200700003_45}, \labelcref{eq_11_bmo200700003_24} \vdash n<4
+\end{equation}
+\hfill $\square$
+
+Comprobando manualmente las posibles permutaciones para $n \in \{1,2,3\}$ se llega a la conclusión que las únicas soluciones posibles son 
+
+\begin{itemize}
+	\item{$n=1$ dado que $\sqrt{1} \in \mathbb{N}$}
+	\item{$n=3$ dado que $\sqrt{2 + \sqrt{3 + \sqrt{1}}} \in \mathbb{N}$}
+\end{itemize}
+
+\vspace{1cm}
+Lo que queda demostrado. \\\\\\
