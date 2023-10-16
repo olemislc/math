@@ -1,0 +1,118 @@
+\noindent\textbf{Solution 1}\\\\
+
+
+Veamos que $\frac{85\cdot 10}{120}>7,$ lo que implica que existe una persona A que sigue a $8$ celebridades.\\
+Por otra parte las dos celebridades restantes son seguidas por al menos $85$ de las $119$ personas restantes, como $85\cdot 2>119,$ por palomar existe una persona B que sigue a esas dos celebrities. Las personas A y B satisfacen las condiciones deseadas.
+
+\noindent\textbf{Solution 2(Conteo Doble)}\\\\
+
+En la siguiente matriz
+\[
+\begin{blockarray}{ccccc}
+& c_1 & c_2 & \dots & c_{10} \\
+\begin{block}{c(cccc)}
+  p_1 & a_{1,1} & a_{1,2} & \dots & a_{1,10}  \\
+  p_2 & a_{2,1} & a_{2,2} &  & \vdots \\
+  \vdots & \vdots &  & \ddots  &  \\   
+  p_{120} & a_{120,1} &  & \dots & a_{120,10} \\
+\end{block}
+\end{blockarray}
+ \]
+ las filas representan las $120$ personas y las columnas las $10$ celebridades. La entrada $a_{i,j}$ es $1$ si la persona $i$ es seguidor de la celebridad $j$ y $0$ en otro caso. Sea $x_j$ con $1\le j\le 10$ la suma de la columna $j-$esima. Sabemos por datos que todos los $x_j$ son mayores que $85.$ 
+
+En esta nueva matriz 
+\[
+\begin{blockarray}{ccccc}
+& c_1 & c_2 & \dots & c_{10} \\
+\begin{block}{c(cccc)}
+  p_1p_2 & b_{(1,2),1} & b_{(1,2),2} & \dots & b_{(1,2),10}  \\
+  p_1p_3 & b_{(1,3),1} & b_{(1,3),2} &  & \vdots \\
+  \vdots & \vdots &  & \ddots  &  \\   
+  p_{119}p_{120} & b_{(119,120),1} &  & \dots & b_{(119,120),10} \\
+\end{block}
+\end{blockarray}
+ \]
+las filas representan las ${120\choose{2}}$ parejas de personas y las columnas las $10$ celebridades. La entrada $b_{(i,j), k}$ es $1$ si la celebridad $k$ es seguida por $i$, por $j$ o por ambos y $0$ en otro caso. Sea $S$ la suma de las entradas de esta matriz.\\
+
+Supongamos que ninguna pareja es seguidora de las $10$ celebridades $(*)$. Es equivalente a decir que la suma cada fila de la matriz anterior es menor igual que $9$. Esto último implica que $S\le 9{120\choose{2}}$.
+
+Veamos ahora que $b_{(i,j), k}=0$ solamente si $a_{i,k} = a_{j,k} = 0$, esto implica que la columna $c_k$ de la primera matriz me genera exactamente ${120-x_k\choose{2}}$ ceros en la columna $c_k$ de la segunda matriz, de donde
+\[
+9{120\choose{2}}\ge S = 10{120\choose{2}}- \sum_{k=1}^{10}{120-x_k\choose{2}}\ge  10{120\choose{2}}- \sum_{k=1}^{10}{35\choose{2}}
+\]
+lo anterior es equivalente a $10{35\choose{2}} \ge {120\choose{2}} \Longleftarrow 5950\ge 7140$, contradicción, luego $(*)$ es falso y hemos concluido.
+
+\textbf{Remark:} mientras que $85$ no se puede mejorar por la primera solución, si atacamos por la segunda vía se podría para $82$ seguidores.En la siguiente matriz
+\[
+\begin{blockarray}{ccccc}
+& c_1 & c_2 & \dots & c_{10} \\
+\begin{block}{c(cccc)}
+  p_1 & a_{1,1} & a_{1,2} & \dots & a_{1,10}  \\
+  p_2 & a_{2,1} & a_{2,2} &  & \vdots \\
+  \vdots & \vdots &  & \ddots  &  \\   
+  p_{120} & a_{120,1} &  & \dots & a_{120,10} \\
+\end{block}
+\end{blockarray}
+ \]
+ las filas representan las $120$ personas y las columnas las $10$ celebridades. La entrada $a_{i,j}$ es $1$ si la persona $i$ es seguidor de la celebridad $j$ y $0$ en otro caso. Sea $x_j$ con $1\le j\le 10$ la suma de la columna $j-$esima. Sabemos por datos que todos los $x_j$ son mayores que $85.$ 
+
+En esta nueva matriz 
+\[
+\begin{blockarray}{ccccc}
+& c_1 & c_2 & \dots & c_{10} \\
+\begin{block}{c(cccc)}
+  p_1p_2 & b_{(1,2),1} & b_{(1,2),2} & \dots & b_{(1,2),10}  \\
+  p_1p_3 & b_{(1,3),1} & b_{(1,3),2} &  & \vdots \\
+  \vdots & \vdots &  & \ddots  &  \\   
+  p_{119}p_{120} & b_{(119,120),1} &  & \dots & b_{(119,120),10} \\
+\end{block}
+\end{blockarray}
+ \]
+las filas representan las ${120\choose{2}}$ parejas de personas y las columnas las $10$ celebridades. La entrada $b_{(i,j), k}$ es $1$ si la celebridad $k$ es seguida por $i$, por $j$ o por ambos y $0$ en otro caso. Sea $S$ la suma de las entradas de esta matriz.\\
+
+Supongamos que ninguna pareja es seguidora de las $10$ celebridades $(*)$. Es equivalente a decir que la suma cada fila de la matriz anterior es menor igual que $9$. Esto último implica que $S\le 9{120\choose{2}}$.
+
+Veamos ahora que $b_{(i,j), k}=0$ solamente si $a_{i,k} = a_{j,k} = 0$, esto implica que la columna $c_k$ de la primera matriz me genera exactamente ${120-x_k\choose{2}}$ ceros en la columna $c_k$ de la segunda matriz, de donde
+\[
+9{120\choose{2}}\ge S = 10{120\choose{2}}- \sum_{k=1}^{10}{120-x_k\choose{2}}\ge  10{120\choose{2}}- \sum_{k=1}^{10}{35\choose{2}}
+\]
+lo anterior es equivalente a $10{35\choose{2}} \ge {120\choose{2}} \Longleftarrow 5950\ge 7140$, contradicción, luego $(*)$ es falso y hemos concluido.
+
+\textbf{Remark:} mientras que $85$ no se puede mejorar por la primera solución, si atacamos por la segunda vía se podría para $82$ seguidores.En la siguiente matriz
+\[
+\begin{blockarray}{ccccc}
+& c_1 & c_2 & \dots & c_{10} \\
+\begin{block}{c(cccc)}
+  p_1 & a_{1,1} & a_{1,2} & \dots & a_{1,10}  \\
+  p_2 & a_{2,1} & a_{2,2} &  & \vdots \\
+  \vdots & \vdots &  & \ddots  &  \\   
+  p_{120} & a_{120,1} &  & \dots & a_{120,10} \\
+\end{block}
+\end{blockarray}
+ \]
+ las filas representan las $120$ personas y las columnas las $10$ celebridades. La entrada $a_{i,j}$ es $1$ si la persona $i$ es seguidor de la celebridad $j$ y $0$ en otro caso. Sea $x_j$ con $1\le j\le 10$ la suma de la columna $j-$esima. Sabemos por datos que todos los $x_j$ son mayores que $85.$ 
+
+En esta nueva matriz 
+\[
+\begin{blockarray}{ccccc}
+& c_1 & c_2 & \dots & c_{10} \\
+\begin{block}{c(cccc)}
+  p_1p_2 & b_{(1,2),1} & b_{(1,2),2} & \dots & b_{(1,2),10}  \\
+  p_1p_3 & b_{(1,3),1} & b_{(1,3),2} &  & \vdots \\
+  \vdots & \vdots &  & \ddots  &  \\   
+  p_{119}p_{120} & b_{(119,120),1} &  & \dots & b_{(119,120),10} \\
+\end{block}
+\end{blockarray}
+ \]
+las filas representan las ${120\choose{2}}$ parejas de personas y las columnas las $10$ celebridades. La entrada $b_{(i,j), k}$ es $1$ si la celebridad $k$ es seguida por $i$, por $j$ o por ambos y $0$ en otro caso. Sea $S$ la suma de las entradas de esta matriz.\\
+
+Supongamos que ninguna pareja es seguidora de las $10$ celebridades $(*)$. Es equivalente a decir que la suma cada fila de la matriz anterior es menor igual que $9$. Esto último implica que $S\le 9{120\choose{2}}$.
+
+Veamos ahora que $b_{(i,j), k}=0$ solamente si $a_{i,k} = a_{j,k} = 0$, esto implica que la columna $c_k$ de la primera matriz me genera exactamente ${120-x_k\choose{2}}$ ceros en la columna $c_k$ de la segunda matriz, de donde
+\[
+9{120\choose{2}}\ge S = 10{120\choose{2}}- \sum_{k=1}^{10}{120-x_k\choose{2}}\ge  10{120\choose{2}}- \sum_{k=1}^{10}{35\choose{2}}
+\]
+lo anterior es equivalente a $10{35\choose{2}} \ge {120\choose{2}} \Longleftarrow 5950\ge 7140$, contradicción, luego $(*)$ es falso y hemos concluido.
+
+\textbf{Remark:} mientras que $85$ no se puede mejorar por la primera solución, si atacamos por la segunda vía se podría para $82$ seguidores.
+

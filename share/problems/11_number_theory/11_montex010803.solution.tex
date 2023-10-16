@@ -1,0 +1,76 @@
+\noindent\textbf{Solution } \\\\
+
+Del enunciado del problema 
+
+\begin{equation} \label{eq_11_montex010803_0a}
+	m,n \in \mathbb{N}
+\end{equation}
+
+Los coeficientes binomiales son números enteros
+
+\begin{equation} \label{eq_11_montex010803_0}
+	\forall m,n \in \mathbb{N}\ {n \choose m} \in \mathbb{N}
+\end{equation}
+
+Entonces ...
+
+\begin{theorem} \label{tn_div_reflexive}
+	La relación de divisibilidad es reflexiva.
+	
+	\begin{equation} \label{eq_tn_div_reflexive}
+		\forall x \in \mathbb{N}\ x \mid x
+	\end{equation}
+\end{theorem}
+
+\begin{theorem} \label{tn_bezout_mcd} Teorema de Bézout
+	Sean $a, b$ números enteros entonces la ecuación $ax + by = n$ tiene solución si y solo si $mcd(a,b)$ divide a $n$.
+	\begin{equation} \label{eq_tn_bezout_mcd}
+		\forall a,b,n \in \mathbb{N}\ \exists x,y \in \mathbb{N}\ a \cdot x+b \cdot y = n \leftrightarrow mcd(a,b) \mid n
+	\end{equation}
+\end{theorem}
+
+Combinando los enunciados de los dos teoremas anteriores se obtiene que
+
+\begin{equation} \label{eq_11_montex010803_1}
+	\cref{tn_div_reflexive} \vdash mcd(m,n) \mid mcd(m,n)
+\end{equation}
+\begin{equation} \label{eq_11_montex010803_2}
+	\cref{tn_bezout_mcd}, \labelcref{eq_11_montex010803_1} \vdash \exists x,y \in \mathbb{N}\ mcd(m,n) = mx + ny
+\end{equation}
+
+... y con este resultado , después de constatar que 
+
+\begin{equation} \label{eq_11_montex010803_3}
+	\labelcref{eq_11_montex010803_2} \vdash \frac{mcd(m,n)}{n}{n \choose m} = \left(\frac{mx}{n} + y\right) \frac{n!}{m! (n-m)!}
+\end{equation}
+\begin{equation} \label{eq_11_montex010803_4}
+	\frac{mx}{n} \frac{n!}{m! (n-m)!} = \frac{mx}{n} \frac{n \cdot (n-1)!}{m \cdot (m-1)! (n-m)!} = x \cdot \frac{(n-1)!}{(m-1)!(n-m)!}
+\end{equation}
+\begin{equation} \label{eq_11_montex010803_5}
+	\labelcref{eq_11_montex010803_4}, \labelcref{eq_11_montex010803_5} \vdash \frac{mcd(m,n)}{n} {n \choose m} = x {{m-1} \choose {n-1}} + y {n \choose m}
+\end{equation}
+
+Considerando que la expresión original se puede escribir como suma de dos números números naturales y apelando los teoremas básicos que indican que 
+
+\begin{theorem} \label{nat_sum_closure}
+	La suma de dos números naturales también es un número natural.
+	\begin{equation} \label{eq_nat_sum_closure}
+		\forall x,y \in \mathbb{N}\ x+y \in \mathbb{N}
+	\end{equation}
+\end{theorem}
+
+\begin{theorem} \label{nat_mul_closure}
+	El producto de dos números naturales también es un número natural.
+	\begin{equation} \label{eq_nat_mul_closure}
+		\forall x,y \in \mathbb{N}\ x \cdot y \in \mathbb{N}
+	\end{equation}
+\end{theorem}
+
+... se puede llegar a la conclusión que
+
+\begin{equation} \label{eq_11_montex010803_5}
+	\labelcref{eq_11_montex010803_0a}, \labelcref{eq_11_montex010803_0}, \labelcref{eq_11_montex010803_2}, \labelcref{eq_11_montex010803_5}, \cref{nat_sum_closure}, \cref{nat_mul_closure} \vdash \frac{mcd(m,n)}{n}{n \choose m} \in \mathbb{N}
+\end{equation}
+
+\vspace{1cm}
+Lo que queda demostrado. \\\\\\
