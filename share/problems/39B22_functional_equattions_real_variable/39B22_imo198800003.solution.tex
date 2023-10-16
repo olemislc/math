@@ -88,10 +88,13 @@ Además
 \begin{equation}  \label{eq_39B22_imo198800003_18}
 	\labelcref{eq_39B22_imo198800003_14}, \labelcref{eq_39B22_imo198800003_17}, , \labelcref{eq_39B22_imo198800003_3} \vdash f(\sum_{i=0}^{p}{a_i 2^i}) = \sum_{i=0}^{p}{a_{p-i} 2^i} \implies f(\sum_{i=0}^{p}{a_i 2^{i+1}} + 1 \cdot 2^0) =  1 \cdot 2^{p+1} + \sum_{i=0}^{p}{a_{p-i} 2^i} 
 \end{equation}
+\begin{equation}  \label{eq_39B22_imo198800003_19}
+	\labelcref{eq_39B22_imo198800003_16}, \labelcref{eq_39B22_imo198800003_18} \vdash f(\sum_{i=0}^{p}{a_i 2^i}) = \sum_{i=0}^{p}{a_{p-i} 2^i} 
+\end{equation}
 
 \hfill $\square$
 
-Por lo tanto $f(n) = n$ si y solo si la representación binaria de $n$ es simetrica.. Solamente resta entonces contar la cantidad de números . Para números de $m$ cifras cualquier permutación de la mitad menos uno de los digitos binarios se replica como espejo a la segunda mitad. Es por esto que en $\interval[open right]{2^p}{2^{p+1}}$ hay $2^{\left[{\frac{m - 1}{2}}\right]}$ números con esta característica. Por lo tanto 
+Por lo tanto $f(n) = n$ si y solo si la representación binaria de $n$ es simetrica.. Solamente resta entonces contar la cantidad de números . Para números de $m$ cifras cualquier permutación de la mitad menos uno de los digitos binarios se replica como espejo a la segunda mitad. Es por esto que en $\interval[open right]{2^p}{2^{p+1}}$ hay $2^{\left[{\frac{p + 1}{2}}\right]}$ números con esta característica. Por lo tanto 
 
 \begin{itemize}
 	\item{hay $1$ binario palíndrome en $\interval[open right]{1}{2}$}
