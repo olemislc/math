@@ -1,0 +1,46 @@
+
+box -2, -3, 8, 5
+A B C triangle
+
+H = orthocenter(A, B, C)
+C1 = circle(A, B, C)
+O = center(C1)
+K = midpoint(A.H)
+l = line(O, 125deg)
+P = intersection(perpendicular(l, B), l)
+Q = intersection(perpendicular(l, C), l)
+M = midpoint(B.C)
+
+A' = intersection(line(A, H), line(B,C))
+
+draw
+  (A.B.C)
+  l
+  H; O; P; Q
+  C1 dashed
+  A.A'; K.P; K.Q
+  O.M; M.P; M.Q
+end
+
+label double
+  M.P; M.Q
+end
+
+draw dashed
+  C1
+  B.P; C.Q
+  O.B; O.C
+  K.M; O.A
+end
+
+label
+  A -135deg; B -45deg ; C 90deg;
+  O -135deg; H 135deg; P -135deg; Q -135deg; K -90deg
+  M 45deg
+  M.B; M.C
+end
+
+label right
+  O, M, B; O,M,C; B,P,O; C,Q,O
+end
+
