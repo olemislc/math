@@ -1,0 +1,38 @@
+
+box -2, -3, 8, 5
+
+A B C triangle 6, 60deg, 45deg 
+C1 = circle(A,B,C)
+O = center(C1)
+
+D = intersection(line(A,O), line(B, C))
+E = midpoint(C.D)
+
+draw
+  (A.B.C)
+  C1 dashed
+  O; D; E
+  A.D; O.E
+  O.B; O.C
+end
+
+label
+  A -135deg; B -45deg; C 90deg
+  O -90deg; D 20deg; E 45deg
+  O.D; B.D; D.E; E.C; O.E
+  O,E,D; E,D,O; D,O,E
+end
+
+label double
+  O.A; O.B; O.C
+  B,A,O; O,B,A
+end
+
+label dotted
+  D,B,O; B,O,D; E,O,C; O,C,E
+end
+
+label dashed
+  O,A,C; A,C,O
+end
+
